@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Us | DevLoopIt</title>
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/font-awesome/css/all.min.css" />
+</head>
+
+<body>
+    <header>
+        <nav aria-label="Primary navigation">
+            <a href="/" class="logo" aria-label="DevLoopIt Home"><i class="fas fa-code"></i> <span
+                    data-i18n="brand_devloopit">DevLoopIt</span></a>
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="/"><i class="fas fa-home"></i> <span data-i18n="nav_home">Home</span></a></li>
+                    <li><a href="/about/"><i class="fas fa-info-circle"></i> <span data-i18n="nav_about">About
+                                Us</span></a></li>
+                    <li><a href="/services/"><i class="fas fa-cogs"></i> <span
+                                data-i18n="nav_services">Services</span></a>
+                    </li>
+                    <li><a href="/portfolio/"><i class="fas fa-briefcase"></i> <span
+                                data-i18n="nav_portfolio">Portfolio</span></a></li>
+                    <li><a href="/blog/"><i class="fas fa-blog"></i> <span data-i18n="nav_blog">Blog</span></a></li>
+                    <li><a href="/discuss-project/"><i class="fas fa-comments"></i> <span
+                                data-i18n="nav_discuss">Discuss
+                                Project</span></a></li>
+                </ul>
+            </div>
+            <div class="header-controls">
+                <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <label class="theme-switch" aria-label="Toggle Dark/Light Mode">
+                    <input type="checkbox" id="theme-toggle" />
+                    <span class="slider">
+                        <svg class="icon sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <circle cx="12" cy="12" r="5" fill="#FFC107" />
+                            <g stroke="#FFC107" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="4" />
+                                <line x1="12" y1="20" x2="12" y2="23" />
+                                <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" />
+                                <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" />
+                                <line x1="1" y1="12" x2="4" y2="12" />
+                                <line x1="20" y1="12" x2="23" y2="12" />
+                                <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" />
+                                <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" />
+                            </g>
+                        </svg>
+                        <svg class="icon moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path fill="#FFF" d="M21 12.79A9 9 0 0112.21 3 7 7 0 1012 21a9 9 0 009-8.21z" />
+                        </svg>
+                    </span>
+                </label>
+
+                <div class="language-switcher" aria-label="Choose language">
+                    <button type="button" class="lang-btn" data-lang="en" data-i18n="lang_en">EN</button>
+                    <button type="button" class="lang-btn" data-lang="ar" data-i18n="lang_ar">AR</button>
+                    <button type="button" class="lang-btn" data-lang="fr" data-i18n="lang_fr">FR</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="overlay"></div>
+    <div class="language-loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <main>
+        This is about us page
+    </main>
+
+    <div id="cookie-banner" role="dialog" aria-live="polite">
+        <p data-i18n="cookie_message"></p>
+        <div class="cookie-buttons">
+            <button type="button" id="accept-cookies" data-i18n="accept" data-i18n-aria="aria-label"
+                title="Accept cookies"></button>
+            <button type="button" id="reject-cookies" data-i18n="reject" data-i18n-aria="aria-label"
+                title="Reject cookies"></button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="/" class="logo" aria-label="DevLoopIt Home"><i class="fas fa-code"></i> <span
+                        data-i18n="brand_devloopit">DevLoopIt</span></a>
+            </div>
+
+            <nav class="footer-quick-links" aria-label="Quick Links">
+                <h2><i class="fas fa-link"></i> <span data-i18n="footer_quick_links">Quick Links</span></h2>
+                <ul>
+                    <li><a href="/" data-i18n="nav_home">Home</a></li>
+                    <li><a href="/about/" data-i18n="nav_about">About Us</a></li>
+                    <li><a href="/services/" data-i18n="nav_services">Services</a></li>
+                    <li><a href="/portfolio/" data-i18n="nav_portfolio">Portfolio</a></li>
+                    <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
+                    <li><a href="/discuss-project/" data-i18n="nav_discuss">Discuss Project</a></li>
+                </ul>
+            </nav>
+
+            <section class="footer-contact" aria-label="Contact Us">
+                <h2><i class="fas fa-address-card"></i> <span data-i18n="footer_contact">Contact Us</span></h2>
+                <address>
+                    <p><i class="fas fa-envelope"></i><a href="mailto:contact@devloopit.com">contact@devloopit.com</a>
+                    </p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+1234567890" data-i18n="footer_phone">+1 (234)
+                            567-890</a></p>
+                    <p><i class="fab fa-whatsapp"></i><a href="tel:+1234567890" data-i18n="footer_phone">+1 (234)
+                            567-890</a></p>
+                </address>
+            </section>
+
+            <section class="footer-follow" aria-label="Follow Us">
+                <h2><i class="fas fa-share-alt"></i> <span data-i18n="footer_follow">Follow Us</span></h2>
+                <ul class="social-links">
+                    <li><a href="https://facebook.com/devloopit" target="_blank" rel="noopener" aria-label="Facebook"><i
+                                class="fab fa-facebook"></i> <span data-i18n="brand_facebook">Facebook</span></a></li>
+                    <li><a href="https://instagram.com/devloopit" target="_blank" rel="noopener"
+                            aria-label="Instagram"><i class="fab fa-instagram"></i> <span
+                                data-i18n="brand_instagram">Instagram</span></a></li>
+                </ul>
+            </section>
+
+            <section class="footer-subscribe" aria-label="Subscribe to newsletter">
+                <h2><i class="fas fa-paper-plane"></i> <span data-i18n="footer_stay_updated">Stay Updated</span></h2>
+                <p data-i18n="footer_newsletter_text">Sign up to receive the latest news, tips, and exclusive offers.
+                </p>
+                <form action="/subscribe" method="post">
+                    <input type="email" id="email-subscribe" name="email"
+                        data-i18n-placeholder="footer_email_placeholder" placeholder="Your email" required />
+                    <i class="fas fa-envelope"></i>
+                    <button type="submit" data-i18n="footer_subscribe">Subscribe</button>
+                </form>
+            </section>
+
+            <section class="footer-about" aria-label="About Us">
+                <h2><i class="fas fa-info-circle"></i> <span data-i18n="footer_about">About Us</span></h2>
+                <p><span data-i18n="footer_about_text">DevLoopIt is a leading software development company dedicated to
+                        creating innovative solutions that drive business growth and digital transformation.</span></p>
+                <ul class="footer-social">
+                    <li><a href="https://linkedin.com/company/devloopit" target="_blank" rel="noopener"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin"></i> <span
+                                data-i18n="brand_linkedin">LinkedIn</span></a></li>
+                    <li><a href="https://twitter.com/devloopit" target="_blank" rel="noopener" aria-label="Twitter"><i
+                                class="fab fa-twitter"></i> <span data-i18n="brand_twitter">Twitter</span></a></li>
+                    <li><a href="https://github.com/devloopit" target="_blank" rel="noopener" aria-label="GitHub"><i
+                                class="fab fa-github"></i> <span data-i18n="brand_github">GitHub</span></a></li>
+                </ul>
+            </section>
+
+            <section class="footer-services" aria-label="Our Services">
+                <h2><i class="fas fa-cogs"></i> <span data-i18n="footer_services">Our Services</span></h2>
+                <ul>
+                    <li><a href="/services/web-development"><i class="fas fa-code"></i> <span
+                                data-i18n="footer_web_dev">Web Development</span></a></li>
+                    <li><a href="/services/mobile-apps"><i class="fas fa-mobile-alt"></i> <span
+                                data-i18n="footer_mobile_apps">Mobile Apps</span></a></li>
+                    <li><a href="/services/cloud-solutions"><i class="fas fa-cloud"></i> <span
+                                data-i18n="footer_cloud">Cloud Solutions</span></a></li>
+                    <li><a href="/services/ai-ml"><i class="fas fa-brain"></i> <span data-i18n="footer_ai_ml">AI &
+                                Machine Learning</span></a></li>
+                    <li><a href="/services/consulting"><i class="fas fa-chart-line"></i> <span
+                                data-i18n="footer_consulting">Tech Consulting</span></a></li>
+                </ul>
+            </section>
+
+            <section class="footer-legal" aria-label="Legal Information">
+                <h2><i class="fas fa-shield-alt"></i> <span data-i18n="footer_legal">Legal</span></h2>
+                <ul>
+                    <li><a href="/privacy-policy"><i class="fas fa-user-shield"></i> <span
+                                data-i18n="footer_privacy">Privacy Policy</span></a></li>
+                    <li><a href="/terms-of-service"><i class="fas fa-file-contract"></i> <span
+                                data-i18n="footer_terms">Terms of Service</span></a></li>
+                    <li><a href="/cookie-policy"><i class="fas fa-cookie"></i> <span data-i18n="footer_cookie">Cookie
+                                Policy</span></a></li>
+                    <li><a href="/gdpr"><i class="fas fa-lock"></i> <span data-i18n="footer_gdpr">GDPR
+                                Compliance</span></a></li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="footer-bottom">
+            <p><span data-i18n="footer_copyright">© 2025 DevLoopIt. All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <script src="/i18next/i18next.min.js"></script>
+    <script src="/script.js"></script>
+</body>
+
+</html>
