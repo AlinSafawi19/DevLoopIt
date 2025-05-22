@@ -1,4 +1,6 @@
 // Constants and Configuration
+import { loadFooter } from './components/footer.js';
+
 const RTL_LANGUAGES = ['ar'];
 const DEFAULT_THEME = 'light';
 const DEFAULT_LANGUAGE = 'en';
@@ -535,4 +537,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeMobileNav();
     setActiveNavLink();
     initializeCookieBanner();
+    loadFooter(); // Load the footer component
 });
