@@ -180,7 +180,6 @@ function initializeI18next(initialLang) {
                     "brand_linkedin": "LinkedIn",
                     "brand_twitter": "Twitter",
                     "brand_github": "GitHub",
-                    "brand_develoopit": "DeveLoopIt",
 
                     //privacy policy translations
                     "privacy_who_we_are": "Who We Are",
@@ -287,7 +286,6 @@ function initializeI18next(initialLang) {
                     "brand_linkedin": "لينكد إن",
                     "brand_twitter": "تويتر",
                     "brand_github": "جيت هب",
-                    "brand_develoopit": "ديفيلوبيت",
 
                     //privacy policy translations
                     "privacy_who_we_are": "من نحن",
@@ -394,7 +392,6 @@ function initializeI18next(initialLang) {
                     "brand_linkedin": "LinkedIn",
                     "brand_twitter": "Twitter",
                     "brand_github": "GitHub",
-                    "brand_develoopit": "DeveLoopIt",
 
                     //privacy policy translations
                     "privacy_who_we_are": "Qui Sommes-Nous",
