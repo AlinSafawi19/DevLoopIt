@@ -14,7 +14,7 @@ const elements = {
     htmlElement: document.documentElement,
     logo: document.querySelector('.logo'),
     languageSwitcher: document.querySelector('.language-switcher'),
-    languageLoader: document.querySelector('.language-loader')
+    loader: document.querySelector('.loader')
 };
 
 // Local Storage Keys
@@ -65,7 +65,7 @@ function initializeLanguage() {
                 if (newLang) {
                     try {
                         // Show loader
-                        elements.languageLoader.classList.add('active');
+                        elements.loader.classList.add('active');
                         elements.languageSwitcher.classList.add('loading');
 
                         // Add artificial delay to make the transition smoother
@@ -84,7 +84,7 @@ function initializeLanguage() {
                         console.error('Error changing language:', error);
                     } finally {
                         // Hide loader
-                        elements.languageLoader.classList.remove('active');
+                        elements.loader.classList.remove('active');
                         elements.languageSwitcher.classList.remove('loading');
                     }
                 }
@@ -144,6 +144,12 @@ function initializeI18next(initialLang) {
                     "nav_portfolio": "Portfolio",
                     "nav_blog": "Blog",
                     "nav_discuss": "Discuss Project",
+
+                    //landing section
+                    "landing_title": "Welcome to DeveLoopIt",
+                    "landing_subtitle": "Innovative Software Solutions for Your Business",
+                    "landing_services": "Our Services",
+                    "landing_contact": "Get Started",
 
                     //cookie consent translations
                     "cookie_message": "We use cookies to personalize content, analyze traffic, and enhance your browsing experience. You can choose to accept or reject their use.",
@@ -251,6 +257,12 @@ function initializeI18next(initialLang) {
                     "nav_blog": "المدونة",
                     "nav_discuss": "مناقشة المشروع",
 
+                    //landing section
+                    "landing_title": "مرحبا بكم في ديفيلوبيت",
+                    "landing_subtitle": "حلول البرمجيات المبتكرة لأعمالك",
+                    "landing_services": "خدماتنا",
+                    "landing_contact": "ابدأ الآن",
+
                     //cookie consent translations
                     "cookie_message": "نحن نستخدم الكوكيز لتخصيص المحتوى، وتحليل حركة المرور، وتحسين تجربتك في التصفح. يمكنك اختيار قبول استخدامها أو رفضها.",
                     "accept": "قبول",
@@ -356,6 +368,12 @@ function initializeI18next(initialLang) {
                     "nav_portfolio": "Portfolio",
                     "nav_blog": "Blog",
                     "nav_discuss": "Discuter du projet",
+
+                    //landing section
+                    "landing_title": "Bienvenue chez DeveLoopIt",
+                    "landing_subtitle": "Solutions de logiciels innovantes pour votre entreprise",
+                    "landing_services": "Nos Services",
+                    "landing_contact": "Commencez maintenant",
 
                     //cookie consent translations
                     "cookie_message": "Nous utilisons des cookies pour personnaliser le contenu, analyser le trafic et améliorer votre expérience de navigation. Vous pouvez choisir de les accepter ou de les refuser.",
@@ -538,4 +556,14 @@ document.addEventListener('DOMContentLoaded', () => {
     setActiveNavLink();
     initializeCookieBanner();
     loadFooter(); // Load the footer component
+
+    // Handle header background on scroll
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
 });

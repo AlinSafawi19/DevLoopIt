@@ -18,17 +18,14 @@
             </a>
             <div class="nav-menu">
                 <ul class="nav-links">
-                    <li><a href="/"><i class="fas fa-home"></i> <span data-i18n="nav_home">Home</span></a></li>
-                    <li><a href="/about/"><i class="fas fa-info-circle"></i> <span data-i18n="nav_about">About
+                    <li><a href="/"><span data-i18n="nav_home">Home</span></a></li>
+                    <li><a href="/about/"> <span data-i18n="nav_about">About
                                 Us</span></a></li>
-                    <li><a href="/services/"><i class="fas fa-cogs"></i> <span
-                                data-i18n="nav_services">Services</span></a>
+                    <li><a href="/services/"> <span data-i18n="nav_services">Services</span></a>
                     </li>
-                    <li><a href="/portfolio/"><i class="fas fa-briefcase"></i> <span
-                                data-i18n="nav_portfolio">Portfolio</span></a></li>
-                    <li><a href="/blog/"><i class="fas fa-blog"></i> <span data-i18n="nav_blog">Blog</span></a></li>
-                    <li><a href="/discuss-project/"><i class="fas fa-comments"></i> <span
-                                data-i18n="nav_discuss">Discuss
+                    <li><a href="/portfolio/"> <span data-i18n="nav_portfolio">Portfolio</span></a></li>
+                    <li><a href="/blog/"> <span data-i18n="nav_blog">Blog</span></a></li>
+                    <li><a href="/discuss-project/"><span data-i18n="nav_discuss">Discuss
                                 Project</span></a></li>
                 </ul>
             </div>
@@ -68,14 +65,24 @@
     </header>
 
     <div class="overlay"></div>
-    <div class="language-loader">
+    <div class="loader">
         <div class="loader-spinner"></div>
     </div>
 
-    <main>
-        <div class="breadcrumb">
-            <a href="/" data-i18n="nav_home"><i class="fas fa-home"></i> Home</a>
+    <section class="landing-section">
+        <div class="landing-content">
+            <h1 class="landing-title" data-i18n="landing_title">Welcome to DeveLoopIt</h1>
+            <p class="landing-subtitle" data-i18n="landing_subtitle">Innovative Software Solutions for Your Business</p>
+            <div class="landing-buttons">
+                <a href="/services/" class="btn btn-primary" data-i18n="landing_services">Our Services</a>
+                <a href="/discuss-project/" class="btn btn-secondary" data-i18n="landing_contact">Get Started</a>
+            </div>
         </div>
+        <div class="landing-overlay"></div>
+    </section>
+
+    <main>
+
     </main>
 
     <div id="cookie-banner" role="dialog" aria-live="polite">
