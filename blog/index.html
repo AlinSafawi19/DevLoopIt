@@ -12,28 +12,8 @@
 
 <body>
     <header>
-        <nav aria-label="Primary navigation">
-            <a href="/" class="logo" aria-label="DeveLoopIt Home">
-                <img src="/images/lightlogo.png" alt="DeveLoopIt Logo" class="theme-logo">
-            </a>
-            <div class="nav-menu">
-                <ul class="nav-links">
-                    <li><a href="/"><i class="fas fa-home"></i><span data-i18n="nav_home">Home</span></a></li>
-                    <li><a href="/about/"><i class="fas fa-info-circle"></i><span data-i18n="nav_about">About
-                                Us</span></a></li>
-                    <li><a href="/services/"><i class="fas fa-cogs"></i><span
-                                data-i18n="nav_services">Services</span></a></li>
-                    <li><a href="/portfolio/"><i class="fas fa-briefcase"></i><span
-                                data-i18n="nav_portfolio">Portfolio</span></a></li>
-                    <li><a href="/blog/"><i class="fas fa-blog"></i><span data-i18n="nav_blog">Blog</span></a></li>
-                    <li><a href="/discuss-project/"><i class="fas fa-comments"></i><span data-i18n="nav_discuss">Discuss
-                                Project</span></a></li>
-                </ul>
-            </div>
+        <div class="header-top">
             <div class="header-controls">
-                <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-                    <i class="fas fa-bars"></i>
-                </button>
                 <label class="theme-switch" aria-label="Toggle Dark/Light Mode">
                     <input type="checkbox" id="theme-toggle" />
                     <span class="slider">
@@ -62,6 +42,27 @@
                     <button type="button" class="lang-btn" data-lang="fr" data-i18n="lang_fr">FR</button>
                 </div>
             </div>
+        </div>
+        <nav aria-label="Primary navigation">
+            <a href="/" class="logo" aria-label="DeveLoopIt Home">
+                <img src="images/lightlogo.png" alt="DeveLoopIt Logo" class="theme-logo">
+            </a>
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="/"><i class="fas fa-home"></i><span data-i18n="nav_home">Home</span></a></li>
+                    <li><a href="/about/"><i class="fas fa-info-circle"></i><span data-i18n="nav_about">About
+                                Us</span></a></li>
+                    <li><a href="/services/"><i class="fas fa-cogs"></i><span
+                                data-i18n="nav_services">Services</span></a></li>
+                    <li><a href="/portfolio/"><i class="fas fa-briefcase"></i><span
+                                data-i18n="nav_portfolio">Portfolio</span></a></li>
+                    <li><a href="/blog/"><i class="fas fa-blog"></i><span data-i18n="nav_blog">Blog</span></a></li>
+                </ul>
+            </div>
+            <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </button>
         </nav>
     </header>
 
