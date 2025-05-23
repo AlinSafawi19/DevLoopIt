@@ -2,7 +2,7 @@
 import { loadFooter } from './components/footer.js';
 
 const RTL_LANGUAGES = ['ar'];
-const DEFAULT_THEME = 'light';
+const DEFAULT_THEME = 'dark';
 const DEFAULT_LANGUAGE = 'en';
 
 // DOM Elements
@@ -480,25 +480,33 @@ function initializeMobileNav() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
     const overlay = document.querySelector('.overlay');
-    const languageSwitcher = document.querySelector('.language-switcher');
-
-    if (!navToggle || !navMenu || !overlay) {
-        console.warn('Mobile navigation elements not found');
-        return;
-    }
 
     navToggle.addEventListener('click', () => {
+        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', !isExpanded);
         navMenu.classList.toggle('active');
         overlay.classList.toggle('active');
         navToggle.setAttribute('aria-expanded', navMenu.classList.contains('active'));
     });
 
-    overlay.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        overlay.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
-        if (languageSwitcher) {
-            languageSwitcher.classList.remove('mobile-visible');
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+        const isClickInsideNav = navMenu.contains(event.target);
+        const isClickOnToggle = navToggle.contains(event.target);
+
+        if (!isClickInsideNav && !isClickOnToggle && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+            overlay.classList.remove('active');
+        }
+    });
+
+    // Close menu when pressing Escape key
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+            overlay.classList.remove('active');
         }
     });
 }
