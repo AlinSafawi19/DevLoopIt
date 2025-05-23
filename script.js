@@ -187,6 +187,9 @@ function initializeI18next(initialLang) {
                     "brand_linkedin": "LinkedIn",
                     "brand_twitter": "Twitter",
                     "brand_github": "GitHub",
+                    "footer_discuss": "Discuss Project",
+                    "footer_discuss_text": "Ready to start your project? Let's discuss how we can help bring your ideas to life.",
+                    "footer_discuss_cta": "Get Started",
 
                     //privacy policy translations
                     "privacy_who_we_are": "Who We Are",
@@ -298,6 +301,9 @@ function initializeI18next(initialLang) {
                     "brand_linkedin": "لينكد إن",
                     "brand_twitter": "تويتر",
                     "brand_github": "جيت هب",
+                    "footer_discuss": "مناقشة المشروع",
+                    "footer_discuss_text": "هل أنت مستعد لبدء مشروعك؟ دعنا نناقش كيف يمكننا المساعدة في تحقيق أفكارك.",
+                    "footer_discuss_cta": "ابدأ الآن",
 
                     //privacy policy translations
                     "privacy_who_we_are": "من نحن",
@@ -409,6 +415,9 @@ function initializeI18next(initialLang) {
                     "brand_linkedin": "LinkedIn",
                     "brand_twitter": "Twitter",
                     "brand_github": "GitHub",
+                    "footer_discuss": "Discuter du Projet",
+                    "footer_discuss_text": "Prêt à démarrer votre projet ? Discutons de la façon dont nous pouvons vous aider à concrétiser vos idées.",
+                    "footer_discuss_cta": "Commencer",
 
                     //privacy policy translations
                     "privacy_who_we_are": "Qui Sommes-Nous",

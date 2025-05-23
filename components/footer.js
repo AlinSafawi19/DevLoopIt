@@ -17,7 +17,6 @@ export function loadFooter() {
                         <li><a href="/services/" class="footer-link"><i class="fas fa-cogs footer-icon"></i> <span data-i18n="nav_services">Services</span></a></li>
                         <li><a href="/portfolio/" class="footer-link"><i class="fas fa-briefcase footer-icon"></i> <span data-i18n="nav_portfolio">Portfolio</span></a></li>
                         <li><a href="/blog/" class="footer-link"><i class="fas fa-blog footer-icon"></i> <span data-i18n="nav_blog">Blog</span></a></li>
-                        <li><a href="/discuss-project/" class="footer-link"><i class="fas fa-comments footer-icon"></i> <span data-i18n="nav_discuss">Discuss Project</span></a></li>
                     </ul>
                 </nav>
 
@@ -48,6 +47,15 @@ export function loadFooter() {
                         </div>
                         <button type="submit" data-i18n="footer_subscribe">Subscribe</button>
                     </form>
+                </section>
+                
+                <section class="footer-section footer-discuss" aria-label="Discuss Project">
+                    <h2><i class="fas fa-comments"></i> <span data-i18n="footer_discuss">Discuss Project</span></h2>
+                    <p><span data-i18n="footer_discuss_text">Ready to start your project? Let's discuss how we can help bring your ideas to life.</span></p>
+                    <a href="/discuss-project/" class="discuss-project-btn">
+                        <i class="fas fa-rocket"></i>
+                        <span data-i18n="footer_discuss_cta">Get Started</span>
+                    </a>
                 </section>
 
                 <section class="footer-section footer-about" aria-label="About Us">

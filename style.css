@@ -843,6 +843,35 @@ footer {
     flex-wrap: wrap;
 }
 
+/* Footer Discuss Section */
+.footer-discuss .discuss-project-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--color-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.footer-discuss .discuss-project-btn:hover {
+    transform: translateY(-2px);
+    background: var(--color-primary);
+}
+
+.footer-discuss .discuss-project-btn i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.footer-discuss .discuss-project-btn:hover i {
+    transform: translateX(4px);
+}
+
 /* Responsive Footer */
 @media (min-width: 1025px) {
     .footer-container {
