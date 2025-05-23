@@ -14,6 +14,7 @@
     --color-text: #1A1A1A;
     --color-muted-text: #555555;
     --color-border: #E0E0E0;
+    --color-landing-subtitle: #61666d;
 
     /* Status Colors */
     --color-success: #2ECC71;
@@ -63,6 +64,7 @@ html[data-theme="dark"] {
     --color-text: #E6EDF3;
     --color-muted-text: #A0AAB8;
     --color-border: #30363D;
+    --color-landing-subtitle: #cbd7e7;
 
     /* Status Colors */
     --color-success: #27AE60;
@@ -439,9 +441,7 @@ header.scrolled .language-switcher {
     position: relative;
     z-index: 2;
     max-width: 800px;
-    padding: 0 var(--spacing-lg);
     animation: fadeInUp 1s ease-out;
-    margin-top: 60px;
 }
 
 @keyframes fadeInUp {
@@ -453,44 +453,6 @@ header.scrolled .language-switcher {
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-/* Update main content styles for parallax effect */
-main {
-    position: relative;
-    background-color: var(--color-bg);
-    z-index: 2;
-}
-
-/* Responsive styles for landing section */
-@media (max-width: 768px) {
-    .landing-title {
-        font-size: 2.5rem;
-    }
-
-    .landing-subtitle {
-        font-size: 1.2rem;
-    }
-
-    .landing-buttons {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-    }
-
-    .btn {
-        width: 100%;
-        max-width: 300px;
-    }
-}
-
-@media (max-width: 480px) {
-    .landing-title {
-        font-size: 2rem;
-    }
-
-    .landing-subtitle {
-        font-size: 1rem;
     }
 }
 
@@ -952,7 +914,7 @@ footer {
     flex-direction: column;
     gap: 20px;
     z-index: 9999;
-    box-shadow: 
+    box-shadow:
         0 10px 40px rgba(0, 0, 0, 0.1),
         0 0 0 1px rgba(255, 255, 255, 0.1);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1142,7 +1104,7 @@ html[dir="rtl"] .cookie-buttons {
 /* Dark theme adjustments */
 html[data-theme="dark"] #cookie-banner {
     background: rgba(22, 27, 34, 0.85);
-    box-shadow: 
+    box-shadow:
         0 10px 40px rgba(0, 0, 0, 0.3),
         0 0 0 1px rgba(255, 255, 255, 0.05);
 }
