@@ -1292,8 +1292,21 @@ html[dir="rtl"] .legal-content-container ul li::before {
         transform: translateX(100%);
     }
 
+    html[dir="rtl"] .nav-menu {
+        right: auto;
+        left: -100%;
+        box-shadow: 2px 0 5px var(--color-shadow);
+        transform: translateX(-100%);
+    }
+
     .nav-menu.active {
         right: 0;
+        transform: translateX(0);
+    }
+
+    html[dir="rtl"] .nav-menu.active {
+        right: auto;
+        left: 0;
         transform: translateX(0);
     }
 
