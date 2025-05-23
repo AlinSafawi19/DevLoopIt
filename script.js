@@ -149,7 +149,6 @@ function initializeI18next(initialLang) {
                     "landing_title": "Welcome to DeveLoopIt",
                     "landing_subtitle": "Innovative Software Solutions for Your Business",
                     "landing_services": "Our Services",
-                    "landing_contact": "Get Started",
 
                     //cookie consent translations
                     "cookie_message": "We use cookies to personalize content, analyze traffic, and enhance your browsing experience. You can choose to accept or reject their use.",
@@ -261,7 +260,6 @@ function initializeI18next(initialLang) {
                     "landing_title": "مرحبا بكم في ديفيلوبيت",
                     "landing_subtitle": "حلول البرمجيات المبتكرة لأعمالك",
                     "landing_services": "خدماتنا",
-                    "landing_contact": "ابدأ الآن",
 
                     //cookie consent translations
                     "cookie_message": "نحن نستخدم الكوكيز لتخصيص المحتوى، وتحليل حركة المرور، وتحسين تجربتك في التصفح. يمكنك اختيار قبول استخدامها أو رفضها.",
@@ -373,7 +371,6 @@ function initializeI18next(initialLang) {
                     "landing_title": "Bienvenue chez DeveLoopIt",
                     "landing_subtitle": "Solutions de logiciels innovantes pour votre entreprise",
                     "landing_services": "Nos Services",
-                    "landing_contact": "Commencez maintenant",
 
                     //cookie consent translations
                     "cookie_message": "Nous utilisons des cookies pour personnaliser le contenu, analyser le trafic et améliorer votre expérience de navigation. Vous pouvez choisir de les accepter ou de les refuser.",
