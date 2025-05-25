@@ -145,6 +145,33 @@ function initializeI18next(initialLang) {
                     "nav_blog": "Blog",
                     "nav_discuss": "Discuss Project",
 
+                    // About Us page translations
+                    "about_mission_vision": "Our Mission & Vision",
+                    "about_mission_vision_subtitle": "Driving innovation through technology and excellence",
+                    "about_mission_title": "Our Mission",
+                    "about_mission_text": "To empower businesses with cutting-edge technology solutions that drive growth, efficiency, and innovation. We strive to deliver exceptional value through our expertise, dedication, and commitment to excellence.",
+                    "about_vision_title": "Our Vision",
+                    "about_vision_text": "To be the global leader in digital transformation, recognized for our innovative solutions, technical excellence, and unwavering commitment to client success. We envision a future where technology seamlessly enhances human potential.",
+                    "about_story_title": "Our Story",
+                    "about_story_subtitle": "A journey of innovation and growth",
+                    "about_story_image_alt": "Our company's journey",
+                    "about_story_text_1": "Founded in 2020, DeveLoopIt emerged from a vision to revolutionize the digital landscape. What began as a small team of passionate developers has grown into a full-service technology company serving clients worldwide.",
+                    "about_story_text_2": "Our journey has been marked by continuous learning, innovation, and a steadfast commitment to delivering exceptional results. We've evolved from a startup to a trusted technology partner, helping businesses navigate the digital transformation landscape.",
+                    "about_story_text_3": "Today, we stand proud of our achievements while remaining focused on our core values: innovation, excellence, and client success. Our story continues to unfold as we embrace new challenges and opportunities in the ever-evolving world of technology.",
+                    "about_milestones_title": "Our Milestones",
+                    "about_milestones_subtitle": "Key moments in our journey",
+                    "milestone_2020_title": "2020",
+                    "milestone_2020_text": "Company founded with a vision to transform digital solutions",
+                    "milestone_2021_title": "2021",
+                    "milestone_2021_text": "Expanded team and launched innovative service offerings",
+                    "milestone_2022_title": "2022",
+                    "milestone_2022_text": "Achieved significant growth and international recognition",
+                    "milestone_2023_title": "2023",
+                    "milestone_2023_text": "Launched advanced AI solutions and expanded global presence",
+                    "about_cta_title": "Ready to Start Your Project?",
+                    "about_cta_text": "Let's work together to bring your vision to life",
+                    "about_cta_button": "Get Started",
+
                     //landing section
                     "landing_title": "Innovative Software Solutions",
                     "landing_subtitle": "Reliable, Scalable Solutions That Drive Results",
@@ -286,7 +313,11 @@ function initializeI18next(initialLang) {
                     "terms_modifications": "Modifications",
                     "terms_modifications_text": "DeveLoopIt may revise these terms of service for its website at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of service.",
                     "terms_governing_law": "Governing Law",
-                    "terms_governing_law_text": "These terms and conditions are governed by and construed in accordance with the laws and you irrevocably submit to the exclusive jurisdiction of the courts in that location."
+                    "terms_governing_law_text": "These terms and conditions are governed by and construed in accordance with the laws and you irrevocably submit to the exclusive jurisdiction of the courts in that location.",
+
+                    // About Hero Section
+                    about_hero_title: "Crafting Digital Excellence",
+                    about_hero_subtitle: "Where Innovation Meets Purpose",
                 }
             },
             ar: {
@@ -298,6 +329,33 @@ function initializeI18next(initialLang) {
                     "nav_portfolio": "الأعمال",
                     "nav_blog": "المدونة",
                     "nav_discuss": "مناقشة المشروع",
+
+                    // About Us page translations
+                    "about_mission_vision": "مهمتنا ورؤيتنا",
+                    "about_mission_vision_subtitle": "دفع الابتكار من خلال التكنولوجيا والتميز",
+                    "about_mission_title": "مهمتنا",
+                    "about_mission_text": "تمكين الشركات من خلال حلول تكنولوجية متطورة تدفع النمو والكفاءة والابتكار. نسعى جاهدين لتقديم قيمة استثنائية من خلال خبرتنا وتفانينا والتزامنا بالتميز.",
+                    "about_vision_title": "رؤيتنا",
+                    "about_vision_text": "أن نكون الرائد العالمي في التحول الرقمي، معروفين بحلولنا المبتكرة وتميزنا التقني والتزامنا الثابت بنجاح العملاء. نتطلع إلى مستقبل حيث تعزز التكنولوجيا الإمكانات البشرية بسلاسة.",
+                    "about_story_title": "قصتنا",
+                    "about_story_subtitle": "رحلة من الابتكار والنمو",
+                    "about_story_image_alt": "رحلة شركتنا",
+                    "about_story_text_1": "تأسست DeveLoopIt في عام 2020 من رؤية لإحداث ثورة في المشهد الرقمي. ما بدأ كفريق صغير من المطورين المتحمسين نما ليصبح شركة تكنولوجيا متكاملة تخدم العملاء في جميع أنحاء العالم.",
+                    "about_story_text_2": "تميزت رحلتنا بالتعلم المستمر والابتكار والالتزام الثابت بتقديم نتائج استثنائية. لقد تطورنا من شركة ناشئة إلى شريك تكنولوجي موثوق، مما يساعد الشركات على التنقل في مشهد التحول الرقمي.",
+                    "about_story_text_3": "اليوم، نحن نفخر بإنجازاتنا مع الحفاظ على تركيزنا على قيمنا الأساسية: الابتكار والتميز ونجاح العملاء. تستمر قصتنا في التطور مع مواجهة تحديات وفرص جديدة في عالم التكنولوجيا المتطور باستمرار.",
+                    "about_milestones_title": "معالمنا",
+                    "about_milestones_subtitle": "لحظات رئيسية في رحلتنا",
+                    "milestone_2020_title": "2020",
+                    "milestone_2020_text": "تأسيس الشركة برؤية لتحويل الحلول الرقمية",
+                    "milestone_2021_title": "2021",
+                    "milestone_2021_text": "توسيع الفريق وإطلاق عروض خدمات مبتكرة",
+                    "milestone_2022_title": "2022",
+                    "milestone_2022_text": "تحقيق نمو كبير واعتراف دولي",
+                    "milestone_2023_title": "2023",
+                    "milestone_2023_text": "إطلاق حلول الذكاء الاصطناعي المتقدمة وتوسيع النطاق العالمي",
+                    "about_cta_title": "هل أنت مستعد لبدء مشروعك؟",
+                    "about_cta_text": "دعنا نعمل معًا لتحقيق رؤيتك",
+                    "about_cta_button": "ابدأ الآن",
 
                     //landing section
                     "landing_title": "حلول برمجية مبتكرة",
@@ -440,7 +498,11 @@ function initializeI18next(initialLang) {
                     "terms_modifications": "التعديلات",
                     "terms_modifications_text": "يجوز لديفيلوبيت مراجعة شروط الخدمة هذه لموقعها في أي وقت دون إشعار. باستخدام هذا الموقع، فإنك توافق على الالتزام بالإصدار الحالي من شروط الخدمة هذه.",
                     "terms_governing_law": "القانون الحاكم",
-                    "terms_governing_law_text": "تخضع هذه الشروط والأحكام وتحكم وفقًا للقوانين وتخضع بشكل لا رجعة فيه للاختصاص الحصري لمحاكم ذلك الموقع."
+                    "terms_governing_law_text": "تخضع هذه الشروط والأحكام وتحكم وفقًا للقوانين وتخضع بشكل لا رجعة فيه للاختصاص الحصري لمحاكم ذلك الموقع.",
+
+                    // About Hero Section
+                    about_hero_title: "صياغة التميز الرقمي",
+                    about_hero_subtitle: "حيث يلتقي الابتكار بالهدف",
                 }
             },
             fr: {
@@ -452,6 +514,33 @@ function initializeI18next(initialLang) {
                     "nav_portfolio": "Portfolio",
                     "nav_blog": "Blog",
                     "nav_discuss": "Discuter du projet",
+
+                    // About Us page translations
+                    "about_mission_vision": "Notre Mission & Vision",
+                    "about_mission_vision_subtitle": "Propulser l'innovation par la technologie et l'excellence",
+                    "about_mission_title": "Notre Mission",
+                    "about_mission_text": "Donner aux entreprises les moyens d'innover grâce à des solutions technologiques de pointe qui stimulent la croissance, l'efficacité et l'innovation. Nous nous efforçons de fournir une valeur exceptionnelle grâce à notre expertise, notre dévouement et notre engagement envers l'excellence.",
+                    "about_vision_title": "Notre Vision",
+                    "about_vision_text": "Être le leader mondial de la transformation numérique, reconnu pour nos solutions innovantes, notre excellence technique et notre engagement inébranlable envers le succès de nos clients. Nous envisageons un avenir où la technologie améliore harmonieusement le potentiel humain.",
+                    "about_story_title": "Notre Histoire",
+                    "about_story_subtitle": "Un parcours d'innovation et de croissance",
+                    "about_story_image_alt": "Le parcours de notre entreprise",
+                    "about_story_text_1": "Fondée en 2020, DeveLoopIt est née d'une vision de révolutionner le paysage numérique. Ce qui a commencé comme une petite équipe de développeurs passionnés s'est transformé en une entreprise technologique à service complet desservant des clients du monde entier.",
+                    "about_story_text_2": "Notre parcours a été marqué par un apprentissage continu, l'innovation et un engagement constant à fournir des résultats exceptionnels. Nous avons évolué d'une startup à un partenaire technologique de confiance, aidant les entreprises à naviguer dans le paysage de la transformation numérique.",
+                    "about_story_text_3": "Aujourd'hui, nous sommes fiers de nos réalisations tout en restant concentrés sur nos valeurs fondamentales : l'innovation, l'excellence et le succès des clients. Notre histoire continue de se dérouler alors que nous embrassons de nouveaux défis et opportunités dans le monde en constante évolution de la technologie.",
+                    "about_milestones_title": "Nos Jalons",
+                    "about_milestones_subtitle": "Moments clés de notre parcours",
+                    "milestone_2020_title": "2020",
+                    "milestone_2020_text": "Création de l'entreprise avec une vision de transformer les solutions numériques",
+                    "milestone_2021_title": "2021",
+                    "milestone_2021_text": "Expansion de l'équipe et lancement d'offres de services innovantes",
+                    "milestone_2022_title": "2022",
+                    "milestone_2022_text": "Croissance significative et reconnaissance internationale",
+                    "milestone_2023_title": "2023",
+                    "milestone_2023_text": "Lancement de solutions d'IA avancées et expansion de la présence mondiale",
+                    "about_cta_title": "Prêt à Démarrer Votre Projet ?",
+                    "about_cta_text": "Travaillons ensemble pour donner vie à votre vision",
+                    "about_cta_button": "Commencer",
 
                     //landing section
                     "landing_title": "Solutions Logicielles Innovantes",
@@ -594,10 +683,17 @@ function initializeI18next(initialLang) {
                     "terms_modifications": "Modifications",
                     "terms_modifications_text": "DeveLoopIt peut réviser ces conditions d'utilisation pour son site web à tout moment sans préavis. En utilisant ce site web, vous acceptez d'être lié par la version alors en vigueur de ces conditions d'utilisation.",
                     "terms_governing_law": "Loi Applicable",
-                    "terms_governing_law_text": "Ces conditions générales sont régies et interprétées conformément aux lois et vous vous soumettez irrévocablement à la juridiction exclusive des tribunaux de cette localité."
+                    "terms_governing_law_text": "Ces conditions générales sont régies et interprétées conformément aux lois et vous vous soumettez irrévocablement à la juridiction exclusive des tribunaux de cette localité.",
+
+                    // About Hero Section
+                    about_hero_title: "Créer l'Excellence Numérique",
+                    about_hero_subtitle: "Où l'Innovation Rencontre le But",
                 }
             }
         }
+    }).then(() => {
+        updateContent();
+        updateChevronDirections();
     });
 }
 
@@ -690,6 +786,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setActiveNavLink();
     initializeCookieBanner();
     loadFooter(); // Load the footer component
+    initializeTimeline(); // Add this line
 
     // Check initial scroll position and handle header background
     const header = document.querySelector('header');
@@ -742,6 +839,8 @@ document.addEventListener('DOMContentLoaded', () => {
             item.style.transform = `translateY(${scrolled * speed}px)`;
         });
     });
+
+    initializeAboutHero();
 });
 
 // Parallax effect for technologies section
@@ -895,4 +994,109 @@ function initializeCommitmentParallax() {
 
     // Initial call to set initial positions
     updateParallax();
+}
+
+function initializeAboutHero() {
+    const heroSection = document.querySelector('.about-hero');
+    if (!heroSection) return;
+
+    // Parallax effect for floating elements
+    const floatingElements = document.querySelectorAll('.floating-element');
+    const heroImage = document.querySelector('.hero-image img');
+
+    function updateParallax() {
+        const scrollY = window.scrollY;
+        const heroHeight = heroSection.offsetHeight;
+        const scrollProgress = Math.min(scrollY / heroHeight, 1);
+
+        // Update floating elements
+        floatingElements.forEach(element => {
+            const speed = element.dataset.speed || 1;
+            const yPos = scrollY * speed * 0.1;
+            const xPos = Math.sin(scrollY * 0.001 * speed) * 20;
+            element.style.transform = `translate(${xPos}px, ${yPos}px)`;
+        });
+
+        // Update hero image
+        if (heroImage) {
+            const scale = 1 + scrollProgress * 0.1;
+            const yPos = scrollY * 0.2;
+            heroImage.style.transform = `translateY(${yPos}px) scale(${scale})`;
+        }
+
+        // Fade out hero section as we scroll
+        heroSection.style.opacity = 1 - scrollProgress;
+    }
+
+    // Smooth scroll to mission section
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', () => {
+            const missionSection = document.querySelector('.mission-vision-section');
+            if (missionSection) {
+                missionSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+
+    // Initialize parallax
+    window.addEventListener('scroll', () => {
+        requestAnimationFrame(updateParallax);
+    });
+
+    // Initial call
+    updateParallax();
+}
+
+// Scroll indicator functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', () => {
+            const missionSection = document.querySelector('.mission-vision-section');
+            if (missionSection) {
+                // Calculate the position to scroll to
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const missionSectionTop = missionSection.getBoundingClientRect().top + window.pageYOffset;
+                const scrollPosition = missionSectionTop - headerHeight - 20; // 20px additional padding
+
+                // Smooth scroll to the calculated position
+                window.scrollTo({
+                    top: scrollPosition,
+                    behavior: 'smooth'
+                });
+
+                // Add a subtle animation to the scroll indicator
+                scrollIndicator.style.transform = 'translateX(-50%) translateY(8px)';
+                setTimeout(() => {
+                    scrollIndicator.style.transform = 'translateX(-50%) translateY(0)';
+                }, 200);
+            }
+        });
+    }
+});
+
+function initializeTimeline() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    const observerOptions = {
+        root: null,
+        rootMargin: '-10% 0px',
+        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5]
+    };
+
+    const timelineObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                requestAnimationFrame(() => {
+                    entry.target.classList.add('visible');
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    timelineItems.forEach(item => {
+        timelineObserver.observe(item);
+    });
 }

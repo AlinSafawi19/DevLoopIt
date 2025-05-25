@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Enhanced Grid Pattern -->
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(0, 119, 255, 0.1)" stroke-width="1"/>
+            <circle cx="20" cy="20" r="1" fill="rgba(0, 119, 255, 0.2)"/>
+        </pattern>
+        
+        <!-- Enhanced Gradients -->
+        <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#0077FF;stop-opacity:0.15"/>
+            <stop offset="50%" style="stop-color:#00C2A8;stop-opacity:0.15"/>
+            <stop offset="100%" style="stop-color:#0077FF;stop-opacity:0.15"/>
+        </linearGradient>
+        
+        <linearGradient id="gradient2" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#00C2A8;stop-opacity:0.15"/>
+            <stop offset="50%" style="stop-color:#0077FF;stop-opacity:0.15"/>
+            <stop offset="100%" style="stop-color:#00C2A8;stop-opacity:0.15"/>
+        </linearGradient>
+        
+        <!-- Enhanced Glow Effects -->
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="20" result="blur"/>
+            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+        
+        <filter id="glowStrong" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="30" result="blur"/>
+            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+        
+        <!-- Animated Gradients -->
+        <linearGradient id="animatedGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#0077FF;stop-opacity:0.2">
+                <animate attributeName="offset" values="0;1;0" dur="10s" repeatCount="indefinite"/>
+            </stop>
+            <stop offset="50%" style="stop-color:#00C2A8;stop-opacity:0.2">
+                <animate attributeName="offset" values="0.5;1.5;0.5" dur="10s" repeatCount="indefinite"/>
+            </stop>
+            <stop offset="100%" style="stop-color:#0077FF;stop-opacity:0.2">
+                <animate attributeName="offset" values="1;2;1" dur="10s" repeatCount="indefinite"/>
+            </stop>
+        </linearGradient>
+    </defs>
+
+    <!-- Base Grid with Animation -->
+    <rect width="100%" height="100%" fill="url(#grid)">
+        <animate attributeName="opacity" values="0.5;0.8;0.5" dur="5s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Enhanced Abstract Tech Elements -->
+    <g filter="url(#glow)">
+        <!-- Complex Circuit Network -->
+        <path d="M 200 200 L 400 200 L 400 400 L 600 400" 
+              stroke="url(#gradient1)" 
+              stroke-width="2" 
+              fill="none" 
+              stroke-dasharray="5,5">
+            <animate attributeName="stroke-dashoffset" values="0;20" dur="2s" repeatCount="indefinite"/>
+        </path>
+              
+        <path d="M 800 300 L 1000 300 L 1000 500 L 1200 500" 
+              stroke="url(#gradient2)" 
+              stroke-width="2" 
+              fill="none" 
+              stroke-dasharray="5,5">
+            <animate attributeName="stroke-dashoffset" values="20;0" dur="2s" repeatCount="indefinite"/>
+        </path>
+        
+        <!-- Additional Circuit Paths -->
+        <path d="M 400 600 L 600 600 L 600 800 L 800 800" 
+              stroke="url(#animatedGradient1)" 
+              stroke-width="2" 
+              fill="none" 
+              stroke-dasharray="5,5">
+            <animate attributeName="stroke-dashoffset" values="0;20" dur="3s" repeatCount="indefinite"/>
+        </path>
+        
+        <!-- Enhanced Floating Nodes -->
+        <g>
+            <circle cx="200" cy="200" r="8" fill="#0077FF" opacity="0.6">
+                <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="400" cy="200" r="8" fill="#00C2A8" opacity="0.6">
+                <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="400" cy="400" r="8" fill="#0077FF" opacity="0.6">
+                <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="600" cy="400" r="8" fill="#00C2A8" opacity="0.6">
+                <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="800" cy="300" r="8" fill="#0077FF" opacity="0.6">
+                <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="1000" cy="300" r="8" fill="#00C2A8" opacity="0.6">
+                <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="1000" cy="500" r="8" fill="#0077FF" opacity="0.6">
+                <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="1200" cy="500" r="8" fill="#00C2A8" opacity="0.6">
+                <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+    </g>
+    
+    <!-- Enhanced Abstract Shapes -->
+    <g opacity="0.15" filter="url(#glowStrong)">
+        <circle cx="300" cy="800" r="150" fill="url(#gradient1)">
+            <animate attributeName="opacity" values="0.15;0.25;0.15" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="1600" cy="200" r="200" fill="url(#gradient2)">
+            <animate attributeName="opacity" values="0.15;0.25;0.15" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="1200" y="700" width="300" height="300" fill="url(#gradient1)" transform="rotate(45 1200 700)">
+            <animate attributeName="opacity" values="0.15;0.25;0.15" dur="4s" repeatCount="indefinite"/>
+        </rect>
+    </g>
+    
+    <!-- Enhanced Tech Icons -->
+    <g opacity="0.1">
+        <path d="M 400 600 L 450 650 L 400 700 L 350 650 Z" fill="#0077FF">
+            <animate attributeName="opacity" values="0.1;0.2;0.1" dur="3s" repeatCount="indefinite"/>
+        </path>
+        <path d="M 600 600 L 650 650 L 600 700 L 550 650 Z" fill="#00C2A8">
+            <animate attributeName="opacity" values="0.1;0.2;0.1" dur="3s" repeatCount="indefinite"/>
+        </path>
+        <path d="M 800 600 L 850 650 L 800 700 L 750 650 Z" fill="#0077FF">
+            <animate attributeName="opacity" values="0.1;0.2;0.1" dur="3s" repeatCount="indefinite"/>
+        </path>
+    </g>
+    
+    <!-- Additional Floating Elements -->
+    <g opacity="0.1">
+        <circle cx="1500" cy="800" r="50" fill="url(#animatedGradient1)">
+            <animate attributeName="cy" values="800;750;800" dur="5s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="1700" cy="600" r="30" fill="url(#animatedGradient1)">
+            <animate attributeName="cy" values="600;550;600" dur="4s" repeatCount="indefinite"/>
+        </circle>
+    </g>
+    
+    <!-- Particle Effects -->
+    <g opacity="0.05">
+        <circle cx="500" cy="300" r="2" fill="#0077FF">
+            <animate attributeName="opacity" values="0.05;0.2;0.05" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="700" cy="400" r="2" fill="#00C2A8">
+            <animate attributeName="opacity" values="0.05;0.2;0.05" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="900" cy="500" r="2" fill="#0077FF">
+            <animate attributeName="opacity" values="0.05;0.2;0.05" dur="2s" repeatCount="indefinite"/>
+        </circle>
+    </g>
+</svg> 
