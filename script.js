@@ -162,6 +162,22 @@ function initializeI18next(initialLang) {
                     "tech_devops_title": "DevOps",
                     "tech_ai_title": "AI & Chatbots",
 
+                    //process section translations
+                    "process_title": "Our Process",
+                    "process_subtitle": "A systematic approach to delivering excellence",
+                    "process_discovery_title": "Discovery",
+                    "process_discovery_text": "We begin by understanding your business needs, goals, and challenges to create a tailored solution.",
+                    "process_design_title": "Design",
+                    "process_design_text": "Our team creates intuitive and engaging user experiences that align with your brand identity.",
+                    "process_development_title": "Development",
+                    "process_development_text": "We build robust and scalable solutions using cutting-edge technologies and best practices.",
+                    "process_testing_title": "Testing",
+                    "process_testing_text": "Rigorous quality assurance ensures your solution is reliable, secure, and performs optimally.",
+                    "process_deployment_title": "Deployment",
+                    "process_deployment_text": "We ensure smooth deployment and provide comprehensive documentation and training.",
+                    "process_support_title": "Support & Growth",
+                    "process_support_text": "Continuous monitoring, maintenance, and optimization to ensure your solution evolves with your needs.",
+
                     //cookie consent translations
                     "cookie_message": "We use cookies to personalize content, analyze traffic, and enhance your browsing experience. You can choose to accept or reject their use.",
                     "accept": "Accept",
@@ -288,6 +304,22 @@ function initializeI18next(initialLang) {
                     "tech_devops_title": "تطوير العمليات",
                     "tech_ai_title": "الذكاء الاصطناعي والروبوتات",
 
+                    //process section translations
+                    "process_title": "عملنا",
+                    "process_subtitle": "نهج منهجي لتقديم التميز",
+                    "process_discovery_title": "الاكتشاف",
+                    "process_discovery_text": "نبدأ بفهم احتياجات عملك وأهدافه وتحدياته لإنشاء حل مخصص.",
+                    "process_design_title": "التصميم",
+                    "process_design_text": "يقوم فريقنا بإنشاء تجارب مستخدم بديهية وجذابة تتماشى مع هوية علامتك التجارية.",
+                    "process_development_title": "التطوير",
+                    "process_development_text": "نقوم ببناء حلول قوية وقابلة للتطوير باستخدام أحدث التقنيات وأفضل الممارسات.",
+                    "process_testing_title": "الاختبار",
+                    "process_testing_text": "يضمن ضمان الجودة الصارم أن حلولك موثوقة وآمنة وتعمل بشكل مثالي.",
+                    "process_deployment_title": "النشر",
+                    "process_deployment_text": "نضمن النشر السلس ونقدم توثيقًا شاملاً وتدريبًا.",
+                    "process_support_title": "الدعم والنمو",
+                    "process_support_text": "مراقبة مستمرة وصيانة وتحسين لضمان تطور حلولك مع احتياجاتك.",
+
                     //cookie consent translations
                     "cookie_message": "نحن نستخدم الكوكيز لتخصيص المحتوى، وتحليل حركة المرور، وتحسين تجربتك في التصفح. يمكنك اختيار قبول استخدامها أو رفضها.",
                     "accept": "قبول",
@@ -413,6 +445,22 @@ function initializeI18next(initialLang) {
                     "tech_database_title": "Base de Données",
                     "tech_devops_title": "DevOps",
                     "tech_ai_title": "IA & Chatbots",
+
+                    //process section translations
+                    "process_title": "Notre Processus",
+                    "process_subtitle": "Une approche systématique pour livrer l'excellence",
+                    "process_discovery_title": "Découverte",
+                    "process_discovery_text": "Nous commençons par comprendre vos besoins, objectifs et défis commerciaux pour créer une solution sur mesure.",
+                    "process_design_title": "Design",
+                    "process_design_text": "Notre équipe crée des expériences utilisateur intuitives et engageantes qui s'alignent avec l'identité de votre marque.",
+                    "process_development_title": "Développement",
+                    "process_development_text": "Nous construisons des solutions robustes et évolutives en utilisant des technologies de pointe et les meilleures pratiques.",
+                    "process_testing_title": "Test",
+                    "process_testing_text": "Un contrôle qualité rigoureux garantit que votre solution est fiable, sécurisée et performante.",
+                    "process_deployment_title": "Déploiement",
+                    "process_deployment_text": "Nous assurons un déploiement fluide et fournissons une documentation complète et une formation.",
+                    "process_support_title": "Support & Croissance",
+                    "process_support_text": "Surveillance continue, maintenance et optimisation pour assurer l'évolution de votre solution avec vos besoins.",
 
                     //cookie consent translations
                     "cookie_message": "Nous utilisons des cookies pour personnaliser le contenu, analyser le trafic et améliorer votre expérience de navigation. Vous pouvez choisir de les accepter ou de les refuser.",
@@ -619,6 +667,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize parallax effect for technologies section
     initializeParallaxEffect();
+    initializeProcessParallax();
 });
 
 // Parallax effect for technologies section
@@ -658,4 +707,46 @@ function initializeParallaxEffect() {
             });
         }
     });
+}
+
+function initializeProcessParallax() {
+    const processSection = document.querySelector('.process-section');
+    const processCards = document.querySelectorAll('.process-card');
+    
+    if (!processSection || !processCards.length) return;
+
+    let ticking = false;
+    let lastScrollY = window.scrollY;
+
+    function updateParallax() {
+        const rect = processSection.getBoundingClientRect();
+        const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+
+        if (isInView) {
+            const scrollProgress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+            
+            processCards.forEach((card, index) => {
+                const step = parseInt(card.dataset.step);
+                const baseOffset = -step * 10;
+                const parallaxOffset = baseOffset + (scrollProgress * 20);
+                
+                card.style.transform = `translateY(${parallaxOffset}px) translateZ(${baseOffset}px)`;
+            });
+        }
+
+        ticking = false;
+    }
+
+    function onScroll() {
+        if (!ticking) {
+            window.requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    
+    // Initial update
+    updateParallax();
 }
