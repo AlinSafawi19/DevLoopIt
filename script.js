@@ -1082,16 +1082,16 @@ function initializeTimeline() {
     const observerOptions = {
         root: null,
         rootMargin: '-10% 0px',
-        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5]
+        threshold: 0.2
     };
 
     const timelineObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                requestAnimationFrame(() => {
-                    entry.target.classList.add('visible');
-                });
-                observer.unobserve(entry.target);
+                entry.target.classList.add('visible');
+                // Don't unobserve to allow for re-animation when scrolling back up
+            } else {
+                entry.target.classList.remove('visible');
             }
         });
     }, observerOptions);
