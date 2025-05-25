@@ -1958,17 +1958,43 @@ html[data-theme="light"] .landing-buttons .btn-secondary {
 }
 
 .about-preview-content h2 {
-    font-size: 3rem;
-    font-weight: 800;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
     color: var(--color-text);
-    margin-bottom: var(--spacing-lg);
     position: relative;
     display: inline-block;
-    letter-spacing: -0.5px;
-    background: linear-gradient(135deg, var(--color-text) 0%, var(--color-muted-text) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--color-primary);
+    width: 0;
+}
+
+.about-preview-content h2.animate {
+    animation: typing 3.5s steps(40, end) forwards,
+        blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 35%
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: var(--color-primary)
+    }
 }
 
 .about-preview-content h2::after {
