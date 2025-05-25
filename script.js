@@ -153,6 +153,15 @@ function initializeI18next(initialLang) {
                     "about_preview_text": "We are a passionate team of developers, designers, and digital strategists dedicated to creating innovative solutions that help businesses thrive in the digital age. With years of experience and a commitment to excellence, we transform ideas into reality.",
                     "learn_more": "Learn More",
 
+                    //technology section translations
+                    "tech_title": "Technologies We Use",
+                    "tech_subtitle": "Cutting-edge tools and frameworks that power our solutions",
+                    "tech_frontend_title": "Frontend",
+                    "tech_backend_title": "Backend",
+                    "tech_database_title": "Database",
+                    "tech_devops_title": "DevOps",
+                    "tech_ai_title": "AI & Chatbots",
+
                     //cookie consent translations
                     "cookie_message": "We use cookies to personalize content, analyze traffic, and enhance your browsing experience. You can choose to accept or reject their use.",
                     "accept": "Accept",
@@ -270,6 +279,15 @@ function initializeI18next(initialLang) {
                     "about_preview_text": "نحن فريق متحمس من المطورين والمصممين واستراتيجيي الرقمنة مكرسون لإنشاء حلول مبتكرة تساعد الشركات على الازدهار في العصر الرقمي. مع سنوات من الخبرة والتزام بالتميز، نحول الأفكار إلى واقع.",
                     "learn_more": "اعرف المزيد",
 
+                    //technology section translations
+                    "tech_title": "التقنيات التي نستخدمها",
+                    "tech_subtitle": "أدوات وأطر عمل متطورة تدعم حلولنا",
+                    "tech_frontend_title": "واجهة المستخدم",
+                    "tech_backend_title": "الخلفية",
+                    "tech_database_title": "قواعد البيانات",
+                    "tech_devops_title": "تطوير العمليات",
+                    "tech_ai_title": "الذكاء الاصطناعي والروبوتات",
+
                     //cookie consent translations
                     "cookie_message": "نحن نستخدم الكوكيز لتخصيص المحتوى، وتحليل حركة المرور، وتحسين تجربتك في التصفح. يمكنك اختيار قبول استخدامها أو رفضها.",
                     "accept": "قبول",
@@ -386,6 +404,15 @@ function initializeI18next(initialLang) {
                     "about_preview_title": "Qui Sommes-Nous",
                     "about_preview_text": "Nous sommes une équipe passionnée de développeurs, de designers et de stratèges numériques dédiés à la création de solutions innovantes qui aident les entreprises à prospérer à l'ère numérique. Avec des années d'expérience et un engagement envers l'excellence, nous transformons les idées en réalité.",
                     "learn_more": "En Savoir Plus",
+
+                    //technology section translations
+                    "tech_title": "Technologies que Nous Utilisons",
+                    "tech_subtitle": "Outils et frameworks de pointe qui alimentent nos solutions",
+                    "tech_frontend_title": "Frontend",
+                    "tech_backend_title": "Backend",
+                    "tech_database_title": "Base de Données",
+                    "tech_devops_title": "DevOps",
+                    "tech_ai_title": "IA & Chatbots",
 
                     //cookie consent translations
                     "cookie_message": "Nous utilisons des cookies pour personnaliser le contenu, analyser le trafic et améliorer votre expérience de navigation. Vous pouvez choisir de les accepter ou de les refuser.",
@@ -589,4 +616,46 @@ document.addEventListener('DOMContentLoaded', () => {
             header.classList.remove('scrolled');
         }
     });
+
+    // Initialize parallax effect for technologies section
+    initializeParallaxEffect();
 });
+
+// Parallax effect for technologies section
+function initializeParallaxEffect() {
+    const techSection = document.querySelector('.technologies');
+    const techCards = document.querySelectorAll('.tech-card');
+    const techItems = document.querySelectorAll('.tech-item');
+
+    if (!techSection) return;
+
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.pageYOffset;
+        const sectionTop = techSection.offsetTop;
+        const sectionHeight = techSection.offsetHeight;
+        const windowHeight = window.innerHeight;
+
+        // Only apply parallax when section is in view
+        if (scrollPosition + windowHeight > sectionTop && 
+            scrollPosition < sectionTop + sectionHeight) {
+            
+            // Calculate how far we've scrolled through the section
+            const scrolled = scrollPosition - sectionTop;
+            const progress = scrolled / (sectionHeight + windowHeight);
+
+            // Apply parallax effect to cards
+            techCards.forEach((card, index) => {
+                const depth = (index + 1) * 10;
+                const translateZ = -depth + (progress * depth * 2);
+                card.style.transform = `translateZ(${translateZ}px)`;
+            });
+
+            // Apply subtle parallax to tech items
+            techItems.forEach((item, index) => {
+                const depth = (index + 1) * 5;
+                const translateZ = -depth + (progress * depth * 2);
+                item.style.transform = `translateZ(${translateZ}px)`;
+            });
+        }
+    });
+}
