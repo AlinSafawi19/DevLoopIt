@@ -2718,3 +2718,259 @@ html {
         font-size: 0.9rem;
     }
 }
+
+/* ==========================================================================
+   Commitment Section
+   ========================================================================== */
+.commitment-section {
+    position: relative;
+    padding: var(--spacing-xl) 0;
+    background: linear-gradient(135deg,
+            rgba(var(--color-bg-rgb), 0.97) 0%,
+            rgba(var(--color-bg-rgb), 0.92) 100%);
+    overflow: hidden;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+}
+
+.commitment-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(var(--color-primary-rgb), 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(var(--color-accent-rgb), 0.15) 0%, transparent 50%);
+    pointer-events: none;
+    transform: translateZ(-100px);
+    animation: gradientShift 15s ease-in-out infinite alternate;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 0%, 100% 100%;
+    }
+    100% {
+        background-position: 100% 100%, 0% 0%;
+    }
+}
+
+.commitment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    transform-style: preserve-3d;
+}
+
+.commitment-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+    opacity: 0;
+    transform: translateY(50px) translateZ(0);
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    background: rgba(var(--color-surface-rgb), 0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--color-border-rgb), 0.1);
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
+}
+
+.commitment-item.visible {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+}
+
+.commitment-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.commitment-icon {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.commitment-icon::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    opacity: 0.3;
+    filter: blur(10px);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.commitment-icon i {
+    font-size: 2.5rem;
+    color: white;
+    transition: transform 0.4s ease;
+}
+
+.commitment-content {
+    flex: 1;
+    position: relative;
+}
+
+.commitment-content h3 {
+    font-size: 1.8rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-text) 0%, var(--color-muted-text) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.commitment-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, var(--color-primary), var(--color-accent));
+    border-radius: var(--radius-sm);
+    transition: width 0.4s ease;
+}
+
+.commitment-item:hover .commitment-content h3::after {
+    width: 100%;
+}
+
+.commitment-content p {
+    color: var(--color-muted-text);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin: 0;
+    position: relative;
+    padding-left: var(--spacing-lg);
+}
+
+.commitment-content p::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--color-primary), var(--color-accent));
+    border-radius: var(--radius-sm);
+    opacity: 0.5;
+}
+
+.commitment-item:nth-child(even) .commitment-content p::before {
+    left: auto;
+    right: 0;
+}
+
+.commitment-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(var(--color-border-rgb), 0.1);
+}
+
+.commitment-item:hover .commitment-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.commitment-item:hover .commitment-icon i {
+    transform: scale(1.1);
+}
+
+/* Parallax effect for commitment items */
+.commitment-item[data-commitment="1"] {
+    transform: translateZ(0);
+}
+
+.commitment-item[data-commitment="2"] {
+    transform: translateZ(-20px);
+}
+
+.commitment-item[data-commitment="3"] {
+    transform: translateZ(-40px);
+}
+
+.commitment-item[data-commitment="4"] {
+    transform: translateZ(-60px);
+}
+
+@media (max-width: 768px) {
+    .commitment-item {
+        flex-direction: column !important;
+        text-align: center;
+        padding: var(--spacing-md);
+    }
+
+    .commitment-icon {
+        width: 100px;
+        height: 100px;
+    }
+
+    .commitment-icon i {
+        font-size: 2rem;
+    }
+
+    .commitment-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .commitment-content p {
+        font-size: 1rem;
+        padding-left: 0;
+    }
+
+    .commitment-content p::before {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .commitment-section {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .commitment-item {
+        padding: var(--spacing-sm);
+    }
+
+    .commitment-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .commitment-icon i {
+        font-size: 1.8rem;
+    }
+
+    .commitment-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .commitment-content p {
+        font-size: 0.95rem;
+    }
+}

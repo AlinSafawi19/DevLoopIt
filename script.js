@@ -178,6 +178,18 @@ function initializeI18next(initialLang) {
                     "process_support_title": "Support & Growth",
                     "process_support_text": "Continuous monitoring, maintenance, and optimization to ensure your solution evolves with your needs.",
 
+                    //commitment section translations
+                    "commitment_title": "Our Commitment",
+                    "commitment_subtitle": "More than business—it's our promise to you as we grow",
+                    "commitment_innovation_title": "Delivering Innovation with Integrity",
+                    "commitment_innovation_text": "We push boundaries while maintaining the highest ethical standards in everything we do.",
+                    "commitment_listening_title": "Listening Closely to Your Needs",
+                    "commitment_listening_text": "Your feedback shapes our solutions. We're here to understand and exceed your expectations.",
+                    "commitment_quality_title": "Moving Fast, Staying Quality-Focused",
+                    "commitment_quality_text": "We balance speed with excellence, ensuring every solution meets our high standards.",
+                    "commitment_impact_title": "Building Solutions That Make a Difference",
+                    "commitment_impact_text": "We create technology that solves real problems and drives meaningful change.",
+
                     //cookie consent translations
                     "cookie_message": "We use cookies to personalize content, analyze traffic, and enhance your browsing experience. You can choose to accept or reject their use.",
                     "accept": "Accept",
@@ -320,6 +332,18 @@ function initializeI18next(initialLang) {
                     "process_support_title": "الدعم والنمو",
                     "process_support_text": "مراقبة مستمرة وصيانة وتحسين لضمان تطور حلولك مع احتياجاتك.",
 
+                    //commitment section translations
+                    "commitment_title": "التزامنا",
+                    "commitment_subtitle": "أكثر من مجرد عمل — إنه وعدنا لك مع نمونا",
+                    "commitment_innovation_title": "تقديم الابتكار بنزاهة",
+                    "commitment_innovation_text": "نحن نتجاوز الحدود مع الحفاظ على أعلى المعايير الأخلاقية في كل ما نقوم به.",
+                    "commitment_listening_title": "الاستماع بعناية لاحتياجاتك",
+                    "commitment_listening_text": "ملاحظاتك تشكل حلولنا. نحن هنا لفهم وتجاوز توقعاتك.",
+                    "commitment_quality_title": "التحرك بسرعة مع التركيز على الجودة",
+                    "commitment_quality_text": "نحن نوازن بين السرعة والتميز، مما يضمن أن كل حل يلبي معاييرنا العالية.",
+                    "commitment_impact_title": "بناء حلول تحدث فرقاً",
+                    "commitment_impact_text": "نحن نبتكر تقنيات تحل مشاكل حقيقية وتقود تغييراً هادفاً.",
+
                     //cookie consent translations
                     "cookie_message": "نحن نستخدم الكوكيز لتخصيص المحتوى، وتحليل حركة المرور، وتحسين تجربتك في التصفح. يمكنك اختيار قبول استخدامها أو رفضها.",
                     "accept": "قبول",
@@ -461,6 +485,18 @@ function initializeI18next(initialLang) {
                     "process_deployment_text": "Nous assurons un déploiement fluide et fournissons une documentation complète et une formation.",
                     "process_support_title": "Support & Croissance",
                     "process_support_text": "Surveillance continue, maintenance et optimisation pour assurer l'évolution de votre solution avec vos besoins.",
+
+                    //commitment section translations
+                    "commitment_title": "Notre Engagement",
+                    "commitment_subtitle": "Plus que du travail — c'est notre promesse pour vous à mesure que nous grandissons",
+                    "commitment_innovation_title": "Fournir de l'innovation avec intégrité",
+                    "commitment_innovation_text": "Nous dépassons les limites tout en respectant les normes éthiques les plus élevées dans tout ce que nous faisons.",
+                    "commitment_listening_title": "Écouter attentivement vos besoins",
+                    "commitment_listening_text": "Vos commentaires forment nos solutions. Nous sommes là pour comprendre et dépasser vos attentes.",
+                    "commitment_quality_title": "Se déplacer rapidement, rester focalisé sur la qualité",
+                    "commitment_quality_text": "Nous nous équilibrons entre vitesse et excellence, ce qui garantit que chaque solution répond à nos hautes normes.",
+                    "commitment_impact_title": "Construire des solutions qui font la différence",
+                    "commitment_impact_text": "Nous créons des technologies qui résolvent des problèmes réels et conduisent à des changements significatifs.",
 
                     //cookie consent translations
                     "cookie_message": "Nous utilisons des cookies pour personnaliser le contenu, analyser le trafic et améliorer votre expérience de navigation. Vous pouvez choisir de les accepter ou de les refuser.",
@@ -668,6 +704,38 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize parallax effect for technologies section
     initializeParallaxEffect();
     initializeProcessParallax();
+    initializeCommitmentParallax();
+
+    // Commitment section scroll animation
+    const commitmentItems = document.querySelectorAll('.commitment-item');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2
+    };
+
+    const commitmentObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    commitmentItems.forEach(item => {
+        commitmentObserver.observe(item);
+    });
+
+    // Parallax effect for commitment items
+    document.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        commitmentItems.forEach(item => {
+            const speed = item.getAttribute('data-commitment') * 0.1;
+            item.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+    });
 });
 
 // Parallax effect for technologies section
@@ -685,9 +753,9 @@ function initializeParallaxEffect() {
         const windowHeight = window.innerHeight;
 
         // Only apply parallax when section is in view
-        if (scrollPosition + windowHeight > sectionTop && 
+        if (scrollPosition + windowHeight > sectionTop &&
             scrollPosition < sectionTop + sectionHeight) {
-            
+
             // Calculate how far we've scrolled through the section
             const scrolled = scrollPosition - sectionTop;
             const progress = scrolled / (sectionHeight + windowHeight);
@@ -712,7 +780,7 @@ function initializeParallaxEffect() {
 function initializeProcessParallax() {
     const processSection = document.querySelector('.process-section');
     const processCards = document.querySelectorAll('.process-card');
-    
+
     if (!processSection || !processCards.length) return;
 
     let ticking = false;
@@ -724,12 +792,12 @@ function initializeProcessParallax() {
 
         if (isInView) {
             const scrollProgress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
-            
+
             processCards.forEach((card, index) => {
                 const step = parseInt(card.dataset.step);
                 const baseOffset = -step * 10;
                 const parallaxOffset = baseOffset + (scrollProgress * 20);
-                
+
                 card.style.transform = `translateY(${parallaxOffset}px) translateZ(${baseOffset}px)`;
             });
         }
@@ -746,7 +814,79 @@ function initializeProcessParallax() {
 
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
-    
+
     // Initial update
+    updateParallax();
+}
+
+function initializeCommitmentParallax() {
+    const commitmentSection = document.querySelector('.commitment-section');
+    const commitmentItems = document.querySelectorAll('.commitment-item');
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px'
+    };
+
+    const commitmentObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                commitmentObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    commitmentItems.forEach(item => {
+        commitmentObserver.observe(item);
+    });
+
+    let ticking = false;
+    let lastScrollY = window.scrollY;
+
+    function updateParallax() {
+        const scrollY = window.scrollY;
+        const sectionTop = commitmentSection.offsetTop;
+        const sectionHeight = commitmentSection.offsetHeight;
+        const viewportHeight = window.innerHeight;
+
+        // Only apply parallax when section is in view
+        if (scrollY + viewportHeight > sectionTop && scrollY < sectionTop + sectionHeight) {
+            const scrollProgress = (scrollY - sectionTop + viewportHeight) / (sectionHeight + viewportHeight);
+
+            commitmentItems.forEach((item, index) => {
+                const depth = item.getAttribute('data-commitment');
+                const translateZ = -30 * depth;
+                const translateY = 20 * Math.sin(scrollProgress * Math.PI * 2 + index * 0.5);
+                const rotateX = 5 * Math.sin(scrollProgress * Math.PI + index * 0.3);
+
+                item.style.transform = `
+                    translateY(${translateY}px)
+                    translateZ(${translateZ}px)
+                    rotateX(${rotateX}deg)
+                `;
+
+                // Add subtle rotation to icons
+                const icon = item.querySelector('.commitment-icon');
+                if (icon) {
+                    const iconRotate = 5 * Math.sin(scrollProgress * Math.PI * 2 + index * 0.7);
+                    icon.style.transform = `rotate(${iconRotate}deg) scale(1)`;
+                }
+            });
+        }
+
+        ticking = false;
+    }
+
+    function onScroll() {
+        if (!ticking) {
+            window.requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+
+    // Initial call to set initial positions
     updateParallax();
 }
