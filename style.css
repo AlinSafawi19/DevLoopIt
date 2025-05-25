@@ -2017,6 +2017,17 @@ html[data-theme="light"] .landing-buttons .btn-secondary {
     right: 0;
 }
 
+/* RTL Support for about preview quotes */
+html[dir="rtl"] .about-preview-content p::before {
+    left: auto;
+    right: 0;
+}
+
+html[dir="rtl"] .about-preview-content p::after {
+    right: auto;
+    left: 0;
+}
+
 .about-preview-content .btn {
     display: inline-flex;
     align-items: center;
