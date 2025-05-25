@@ -496,7 +496,7 @@ header.scrolled .language-switcher {
     background-clip: text;
     color: var(--color-text);
     line-height: 1.2;
-    letter-spacing: -0.02em;
+    /*letter-spacing: 1.5rem;*/
     text-shadow: 0 2px 10px rgba(0, 119, 255, 0.1);
 }
 

@@ -146,8 +146,8 @@ function initializeI18next(initialLang) {
                     "nav_discuss": "Discuss Project",
 
                     //landing section
-                    "landing_title": "Welcome to DeveLoopIt",
-                    "landing_subtitle": "Innovative Software Solutions for Your Business",
+                    "landing_title": "Innovative Software Solutions",
+                    "landing_subtitle": "Reliable, Scalable Solutions That Drive Results",
                     "landing_services": "Our Services",
 
                     //cookie consent translations
@@ -260,8 +260,8 @@ function initializeI18next(initialLang) {
                     "nav_discuss": "مناقشة المشروع",
 
                     //landing section
-                    "landing_title": "مرحبا بكم في ديفيلوبيت",
-                    "landing_subtitle": "حلول البرمجيات المبتكرة لأعمالك",
+                    "landing_title": "حلول برمجية مبتكرة",
+                    "landing_subtitle": "حلول موثوقة وقابلة للتطوير تحقق النتائج",
                     "landing_services": "خدماتنا",
 
                     //cookie consent translations
@@ -374,8 +374,8 @@ function initializeI18next(initialLang) {
                     "nav_discuss": "Discuter du projet",
 
                     //landing section
-                    "landing_title": "Bienvenue chez DeveLoopIt",
-                    "landing_subtitle": "Solutions de logiciels innovantes pour votre entreprise",
+                    "landing_title": "Solutions Logicielles Innovantes",
+                    "landing_subtitle": "Des Solutions Fiables et Évolutives qui Donnent des Résultats",
                     "landing_services": "Nos Services",
 
                     //cookie consent translations
