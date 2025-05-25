@@ -1964,37 +1964,6 @@ html[data-theme="light"] .landing-buttons .btn-secondary {
     color: var(--color-text);
     position: relative;
     display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 3px solid var(--color-primary);
-    width: 0;
-}
-
-.about-preview-content h2.animate {
-    animation: typing 3.5s steps(40, end) forwards,
-        blink-caret .75s step-end infinite;
-}
-
-@keyframes typing {
-    from {
-        width: 0
-    }
-
-    to {
-        width: 100%
-    }
-}
-
-@keyframes blink-caret {
-
-    from,
-    to {
-        border-color: transparent
-    }
-
-    50% {
-        border-color: var(--color-primary)
-    }
 }
 
 .about-preview-content h2::after {

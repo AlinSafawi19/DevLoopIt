@@ -701,30 +701,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Initialize typing animation for about-preview h2
-    const aboutPreviewH2 = document.querySelector('.about-preview-content h2');
-    const aboutObserverOptions = {
-        threshold: 0.5,
-        rootMargin: '0px'
-    };
-
-    const aboutObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Remove the class first to reset the animation
-                entry.target.classList.remove('animate');
-                // Force a reflow
-                void entry.target.offsetWidth;
-                // Add the class back to trigger the animation
-                entry.target.classList.add('animate');
-            }
-        });
-    }, aboutObserverOptions);
-
-    if (aboutPreviewH2) {
-        aboutObserver.observe(aboutPreviewH2);
-    }
-
     // Initialize parallax effect for technologies section
     initializeParallaxEffect();
     initializeProcessParallax();
