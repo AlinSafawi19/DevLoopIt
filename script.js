@@ -149,6 +149,9 @@ function initializeI18next(initialLang) {
                     "landing_title": "Innovative Software Solutions",
                     "landing_subtitle": "Reliable, Scalable Solutions That Drive Results",
                     "landing_services": "Our Services",
+                    "about_preview_title": "Who We Are",
+                    "about_preview_text": "We are a passionate team of developers, designers, and digital strategists dedicated to creating innovative solutions that help businesses thrive in the digital age. With years of experience and a commitment to excellence, we transform ideas into reality.",
+                    "learn_more": "Learn More",
 
                     //cookie consent translations
                     "cookie_message": "We use cookies to personalize content, analyze traffic, and enhance your browsing experience. You can choose to accept or reject their use.",
@@ -263,6 +266,9 @@ function initializeI18next(initialLang) {
                     "landing_title": "حلول برمجية مبتكرة",
                     "landing_subtitle": "حلول موثوقة وقابلة للتطوير تحقق النتائج",
                     "landing_services": "خدماتنا",
+                    "about_preview_title": "من نحن",
+                    "about_preview_text": "نحن فريق متحمس من المطورين والمصممين واستراتيجيي الرقمنة مكرسون لإنشاء حلول مبتكرة تساعد الشركات على الازدهار في العصر الرقمي. مع سنوات من الخبرة والتزام بالتميز، نحول الأفكار إلى واقع.",
+                    "learn_more": "اعرف المزيد",
 
                     //cookie consent translations
                     "cookie_message": "نحن نستخدم الكوكيز لتخصيص المحتوى، وتحليل حركة المرور، وتحسين تجربتك في التصفح. يمكنك اختيار قبول استخدامها أو رفضها.",
@@ -377,6 +383,9 @@ function initializeI18next(initialLang) {
                     "landing_title": "Solutions Logicielles Innovantes",
                     "landing_subtitle": "Des Solutions Fiables et Évolutives qui Donnent des Résultats",
                     "landing_services": "Nos Services",
+                    "about_preview_title": "Qui Sommes-Nous",
+                    "about_preview_text": "Nous sommes une équipe passionnée de développeurs, de designers et de stratèges numériques dédiés à la création de solutions innovantes qui aident les entreprises à prospérer à l'ère numérique. Avec des années d'expérience et un engagement envers l'excellence, nous transformons les idées en réalité.",
+                    "learn_more": "En Savoir Plus",
 
                     //cookie consent translations
                     "cookie_message": "Nous utilisons des cookies pour personnaliser le contenu, analyser le trafic et améliorer votre expérience de navigation. Vous pouvez choisir de les accepter ou de les refuser.",
