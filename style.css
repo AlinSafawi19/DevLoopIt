@@ -3051,7 +3051,7 @@ html {
 .our-story-section {
     position: relative;
     padding: var(--spacing-xl) 0;
-    background-image: url('images/story-bg.jpg');
+    background-image: url('images/story-bg.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -3073,31 +3073,62 @@ html {
     backdrop-filter: blur(2px);
 }
 
-.story-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xl);
-    position: relative;
-    z-index: 2;
-    align-items: center;
+/* Add a subtle floating animation */
+@keyframes floatImage {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(1deg);
+    }
 }
 
 .story-image {
-    position: relative;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    transform-style: preserve-3d;
-    animation: fadeInLeft 0.8s ease-out;
+    animation: fadeInLeft 0.8s ease-out, floatImage 6s ease-in-out infinite;
 }
 
-.story-image img {
-    width: 100%;
-    height: auto;
-    transition: transform 0.4s ease;
+/* Add a subtle glow effect on hover */
+.story-image:hover {
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(var(--color-border-rgb), 0.2),
+        0 0 30px rgba(var(--color-primary-rgb), 0.1);
 }
 
-.story-image:hover img {
-    transform: scale(1.05);
+/* Add a subtle shine effect */
+.story-image::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 45%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.1) 55%,
+        transparent 100%
+    );
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+    z-index: 2;
+}
+
+.story-image:hover::before {
+    opacity: 1;
+    animation: shine 1.5s ease-in-out;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
 }
 
 .story-text {
