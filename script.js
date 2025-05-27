@@ -926,7 +926,9 @@ function initializeProcessParallax() {
 
 function initializeCommitmentParallax() {
     const commitmentSection = document.querySelector('.commitment-section');
-    const commitmentItems = document.querySelectorAll('.commitment-item');
+    if (!commitmentSection) return; // Exit if section doesn't exist
+
+    const commitmentCards = document.querySelectorAll('.commitment-card');
     const observerOptions = {
         threshold: 0.2,
         rootMargin: '0px'
@@ -941,8 +943,8 @@ function initializeCommitmentParallax() {
         });
     }, observerOptions);
 
-    commitmentItems.forEach(item => {
-        commitmentObserver.observe(item);
+    commitmentCards.forEach(card => {
+        commitmentObserver.observe(card);
     });
 
     let ticking = false;
@@ -958,20 +960,20 @@ function initializeCommitmentParallax() {
         if (scrollY + viewportHeight > sectionTop && scrollY < sectionTop + sectionHeight) {
             const scrollProgress = (scrollY - sectionTop + viewportHeight) / (sectionHeight + viewportHeight);
 
-            commitmentItems.forEach((item, index) => {
-                const depth = item.getAttribute('data-commitment');
+            commitmentCards.forEach((card, index) => {
+                const depth = card.getAttribute('data-commitment');
                 const translateZ = -30 * depth;
                 const translateY = 20 * Math.sin(scrollProgress * Math.PI * 2 + index * 0.5);
                 const rotateX = 5 * Math.sin(scrollProgress * Math.PI + index * 0.3);
 
-                item.style.transform = `
+                card.style.transform = `
                     translateY(${translateY}px)
                     translateZ(${translateZ}px)
                     rotateX(${rotateX}deg)
                 `;
 
                 // Add subtle rotation to icons
-                const icon = item.querySelector('.commitment-icon');
+                const icon = card.querySelector('.commitment-icon');
                 if (icon) {
                     const iconRotate = 5 * Math.sin(scrollProgress * Math.PI * 2 + index * 0.7);
                     icon.style.transform = `rotate(${iconRotate}deg) scale(1)`;

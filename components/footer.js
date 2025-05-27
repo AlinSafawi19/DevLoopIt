@@ -5,7 +5,7 @@ export function loadFooter() {
             <div class="footer-container">
                 <div class="footer-logo">
                     <a href="/" class="logo" aria-label="DeveLoopIt Home">
-                        <img src="images/lightlogo.png" alt="DeveLoopIt Logo" width="200" height="53" class="theme-logo">
+                        <img src="/images/lightlogo.png" alt="DeveLoopIt Logo" width="200" height="53" class="theme-logo">
                     </a>
                 </div>
 
