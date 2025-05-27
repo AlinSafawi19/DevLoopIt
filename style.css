@@ -3320,7 +3320,7 @@ html {
     position: relative;
     width: calc(50% - 40px);
     padding: var(--spacing-lg);
-    background: rgba(var(--color-surface-rgb), 0.3);
+    background: transparent;
     border-radius: var(--radius-lg);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
@@ -3330,10 +3330,8 @@ html {
 }
 
 .timeline-item.visible .timeline-content {
-    background: rgba(var(--color-surface-rgb), 0.5);
     opacity: 1;
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .timeline-item:nth-child(odd) .timeline-content {
