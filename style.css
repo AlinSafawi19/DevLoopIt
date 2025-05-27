@@ -3156,18 +3156,16 @@ html {
     display: flex;
     gap: var(--spacing-md);
     padding: var(--spacing-lg);
-    background: rgba(var(--color-surface-rgb), 0.5);
-    border-radius: var(--radius-lg);
+    background: transparent;
+    border-radius: 0;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(var(--color-border-rgb), 0.1);
+    border: none;
     transition: all 0.3s ease;
 }
 
 .story-paragraph:hover {
     transform: translateX(10px);
-    background: rgba(var(--color-surface-rgb), 0.8);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .story-paragraph i {
