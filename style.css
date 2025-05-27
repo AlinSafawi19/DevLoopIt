@@ -3186,7 +3186,6 @@ html {
     font-size: 1.1rem;
 }
 
-/* Responsive styles */
 @media (max-width: 1024px) {
     .story-content {
         grid-template-columns: 1fr;
@@ -3475,7 +3474,7 @@ html {
 }
 
 /* ==========================================================================
-   CTA Section
+   CTA about Section
    ========================================================================== */
 .cta-section {
     position: relative;
@@ -3608,25 +3607,6 @@ html {
 
 .cta-button:hover i {
     transform: translateX(5px);
-}
-
-/* Floating animation for CTA section */
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-.cta-content {
-    animation: float 6s ease-in-out infinite;
 }
 
 /* Responsive styles */
