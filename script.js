@@ -777,6 +777,115 @@ function initializeCookieBanner() {
     });
 }
 
+// Initialize Particles.js
+function initializeParticles() {
+    particlesJS('particles-js', {
+        particles: {
+            number: {
+                value: 80,
+                density: {
+                    enable: true,
+                    value_area: 800
+                }
+            },
+            color: {
+                value: '#0077FF'
+            },
+            shape: {
+                type: 'circle',
+                stroke: {
+                    width: 0,
+                    color: '#000000'
+                },
+                polygon: {
+                    nb_sides: 5
+                }
+            },
+            opacity: {
+                value: 0.5,
+                random: false,
+                anim: {
+                    enable: false,
+                    speed: 1,
+                    opacity_min: 0.1,
+                    sync: false
+                }
+            },
+            size: {
+                value: 3,
+                random: true,
+                anim: {
+                    enable: false,
+                    speed: 40,
+                    size_min: 0.1,
+                    sync: false
+                }
+            },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: '#0077FF',
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 2,
+                direction: 'none',
+                random: false,
+                straight: false,
+                out_mode: 'out',
+                bounce: false,
+                attract: {
+                    enable: false,
+                    rotateX: 600,
+                    rotateY: 1200
+                }
+            }
+        },
+        interactivity: {
+            detect_on: 'canvas',
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: 'grab'
+                },
+                onclick: {
+                    enable: true,
+                    mode: 'push'
+                },
+                resize: true
+            },
+            modes: {
+                grab: {
+                    distance: 140,
+                    line_linked: {
+                        opacity: 1
+                    }
+                },
+                bubble: {
+                    distance: 400,
+                    size: 40,
+                    duration: 2,
+                    opacity: 8,
+                    speed: 3
+                },
+                repulse: {
+                    distance: 200,
+                    duration: 0.4
+                },
+                push: {
+                    particles_nb: 4
+                },
+                remove: {
+                    particles_nb: 2
+                }
+            }
+        },
+        retina_detect: true
+    });
+}
+
 // Initialize everything when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initializeTheme();
@@ -841,6 +950,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     initializeAboutHero();
+    initializeParticles();
 });
 
 // Parallax effect for technologies section
@@ -1080,7 +1190,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initializeTimeline() {
     const timelineItems = document.querySelectorAll('.timeline-item');
-    
+
     const observerOptions = {
         root: null,
         rootMargin: '-10% 0px',
@@ -1102,3 +1212,22 @@ function initializeTimeline() {
         timelineObserver.observe(item);
     });
 }
+
+// Ripple Effect for Landing Buttons
+document.querySelectorAll('.landing-buttons .btn').forEach(button => {
+    button.addEventListener('click', function(e) {
+        const x = e.clientX - e.target.getBoundingClientRect().left;
+        const y = e.clientY - e.target.getBoundingClientRect().top;
+
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+
+        this.appendChild(ripple);
+
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    });
+});
