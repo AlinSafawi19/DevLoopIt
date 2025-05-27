@@ -1967,6 +1967,7 @@ html[dir="rtl"] .legal-content-container ul li::before {
     margin-bottom: 1.5rem;
     background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
     display: inline-block;
