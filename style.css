@@ -2466,6 +2466,7 @@ html {
     background-position: center;
     background-attachment: fixed;
     overflow: hidden;
+    perspective: 1000px;
 }
 
 .process-section::before {
@@ -2499,11 +2500,10 @@ html {
 
 .process-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-lg);
     position: relative;
-    z-index: 2;
-    perspective: 1000px;
+    z-index: 1;
 }
 
 .process-card {
@@ -2630,7 +2630,7 @@ html {
 
 /* Process step number */
 .process-card::after {
-    content: attr(data-step);
+    content: attr(data-i18n-step);
     position: absolute;
     top: var(--spacing-md);
     right: var(--spacing-md);
@@ -2639,11 +2639,18 @@ html {
     color: var(--color-primary);
     opacity: 0.2;
     transition: all 0.3s ease;
+    font-family: var(--font-family);
+    transform: translateZ(15px);
+}
+
+html[dir="rtl"] .process-card::after {
+    right: auto;
+    left: var(--spacing-md);
 }
 
 .process-card:hover::after {
     opacity: 0.4;
-    transform: scale(1.2);
+    transform: scale(1.2) translateZ(25px);
 }
 
 /* Parallax effect for process cards */

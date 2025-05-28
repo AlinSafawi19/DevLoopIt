@@ -99,29 +99,46 @@ function setDocumentLanguage(lang) {
 }
 
 function updateContent() {
-    // Update text content
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        el.textContent = i18next.t(key);
-    });
-
-    // Update ARIA attributes
-    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
-        const ariaAttr = el.getAttribute('data-i18n-aria');
-        const key = el.getAttribute('data-i18n');
-        if (ariaAttr && key) {
-            el.setAttribute(ariaAttr, i18next.t(key));
+    // Update all elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (i18next.exists(key)) {
+            element.textContent = i18next.t(key);
         }
     });
 
-    // Update placeholders
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-        const key = el.getAttribute('data-i18n-placeholder');
-        el.setAttribute('placeholder', i18next.t(key));
+    // Update all elements with data-i18n-step attribute
+    document.querySelectorAll('[data-i18n-step]').forEach(element => {
+        const step = element.getAttribute('data-step');
+        let translatedValue;
+        
+        if (i18next.language === 'ar') {
+            // Convert to Arabic numerals
+            const arabicNumerals = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+            translatedValue = step.split('').map(digit => arabicNumerals[parseInt(digit)]).join('');
+            if (step.length === 1) {
+                translatedValue = '٠' + translatedValue;
+            }
+        } else {
+            // For English and French, use Western numerals
+            translatedValue = step.length === 1 ? '0' + step : step;
+        }
+        
+        element.setAttribute('data-i18n-step', translatedValue);
     });
 
-    // Update chevron directions based on language direction
-    updateChevronDirections();
+    // Update all elements with data-i18n-aria attribute
+    document.querySelectorAll('[data-i18n-aria]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (i18next.exists(key)) {
+            element.setAttribute('aria-label', i18next.t(key));
+        }
+    });
+
+    // Update document direction for RTL languages
+    const currentLang = i18next.language;
+    document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+    document.documentElement.setAttribute('lang', currentLang);
 }
 
 function updateChevronDirections() {
@@ -134,6 +151,7 @@ function updateChevronDirections() {
 function initializeI18next(initialLang) {
     return i18next.init({
         lng: initialLang,
+        fallbackLng: 'en',
         resources: {
             en: {
                 translation: {
@@ -470,7 +488,7 @@ function initializeI18next(initialLang) {
                     "privacy_your_rights_list_2": "طلب حذف أي بيانات شخصية نحتفظ بها عنك",
                     "privacy_your_rights_list_3": "إلغاء الاشتراك من نشرتنا الإخبارية في أي وقت",
                     "privacy_your_rights_list_4": "تحديث تفضيلاتك فيما يتعلق باستخدام ملفات تعريف الارتباط",
-                    "privacy_your_rights_note": "هذا لا يشمل أي بيانات ملزمة بالاحتفاظ بها لأغراض إدارية أو قانونية أو أمنية.",
+                    "privacy_your_rights_note": "هذا لا يشمل أي بيانات ملزمة بالاحتفاظ بها لأغراض إدارية أو قانونية.",
                     "privacy_data_transfer": "أين نرسل بياناتك",
                     "privacy_data_transfer_text": "قد يتم فحص تعليقات الزوار من خلال خدمة كشف البريد العشوائي الآلية. قد نشارك أيضًا معلوماتك مع:",
                     "privacy_data_transfer_list_1": "مقدمي الخدمات الذين يساعدون في تشغيل موقعنا",
@@ -951,6 +969,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initializeAboutHero();
     initializeParticles();
+    initializeProcessSection();
 });
 
 // Parallax effect for technologies section
@@ -1231,3 +1250,196 @@ document.querySelectorAll('.landing-buttons .btn').forEach(button => {
         }, 600);
     });
 });
+
+function initializeProcessSection() {
+    const processCards = document.querySelectorAll('.process-card');
+    const processGrid = document.querySelector('.process-grid');
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetX = 0;
+    let targetY = 0;
+    let isAnimating = false;
+    let rafId = null;
+
+    // Smooth animation function
+    function lerp(start, end, factor) {
+        return start + (end - start) * factor;
+    }
+
+    // Smooth mouse movement animation
+    function animateMouseMove() {
+        if (!isAnimating) return;
+
+        // Smooth interpolation for mouse movement
+        mouseX = lerp(mouseX, targetX, 0.1);
+        mouseY = lerp(mouseY, targetY, 0.1);
+
+        // Apply smooth transform to grid
+        processGrid.style.transform = `
+            perspective(1000px)
+            rotateX(${-mouseY}deg)
+            rotateY(${mouseX}deg)
+        `;
+
+        rafId = requestAnimationFrame(animateMouseMove);
+    }
+
+    // Add mouse move effect to the grid with smooth interpolation
+    processGrid.addEventListener('mousemove', (e) => {
+        const rect = processGrid.getBoundingClientRect();
+        targetX = ((e.clientX - rect.left) / rect.width - 0.5) * 15;
+        targetY = ((e.clientY - rect.top) / rect.height - 0.5) * 15;
+
+        if (!isAnimating) {
+            isAnimating = true;
+            animateMouseMove();
+        }
+    });
+
+    // Reset grid position smoothly when mouse leaves
+    processGrid.addEventListener('mouseleave', () => {
+        targetX = 0;
+        targetY = 0;
+        
+        const resetAnimation = () => {
+            mouseX = lerp(mouseX, 0, 0.1);
+            mouseY = lerp(mouseY, 0, 0.1);
+
+            processGrid.style.transform = `
+                perspective(1000px)
+                rotateX(${-mouseY}deg)
+                rotateY(${mouseX}deg)
+            `;
+
+            if (Math.abs(mouseX) > 0.01 || Math.abs(mouseY) > 0.01) {
+                rafId = requestAnimationFrame(resetAnimation);
+            } else {
+                isAnimating = false;
+                cancelAnimationFrame(rafId);
+            }
+        };
+
+        resetAnimation();
+    });
+
+    // Add hover effect to cards with smooth transitions
+    processCards.forEach((card, index) => {
+        let cardX = 0;
+        let cardY = 0;
+        let targetCardX = 0;
+        let targetCardY = 0;
+        let isCardAnimating = false;
+        let cardRafId = null;
+
+        function animateCard() {
+            if (!isCardAnimating) return;
+
+            cardX = lerp(cardX, targetCardX, 0.1);
+            cardY = lerp(cardY, targetCardY, 0.1);
+
+            const icon = card.querySelector('.process-icon');
+            
+            card.style.transform = `
+                translateY(-10px)
+                rotateX(${-cardY}deg)
+                rotateY(${cardX}deg)
+                scale(1.02)
+            `;
+
+            if (icon) {
+                icon.style.transform = `
+                    translateZ(30px)
+                    rotate(${cardX * 2}deg)
+                    scale(1.1)
+                `;
+            }
+
+            cardRafId = requestAnimationFrame(animateCard);
+        }
+
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            targetCardX = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
+            targetCardY = ((e.clientY - rect.top) / rect.height - 0.5) * 8;
+
+            if (!isCardAnimating) {
+                isCardAnimating = true;
+                animateCard();
+            }
+        });
+
+        card.addEventListener('mouseleave', () => {
+            targetCardX = 0;
+            targetCardY = 0;
+
+            const resetCardAnimation = () => {
+                cardX = lerp(cardX, 0, 0.1);
+                cardY = lerp(cardY, 0, 0.1);
+
+                const icon = card.querySelector('.process-icon');
+
+                card.style.transform = `
+                    translateY(0)
+                    rotateX(0)
+                    rotateY(0)
+                    scale(1)
+                `;
+
+                if (icon) {
+                    icon.style.transform = `
+                        translateZ(0)
+                        rotate(0)
+                        scale(1)
+                    `;
+                }
+
+                if (Math.abs(cardX) > 0.01 || Math.abs(cardY) > 0.01) {
+                    cardRafId = requestAnimationFrame(resetCardAnimation);
+                } else {
+                    isCardAnimating = false;
+                    cancelAnimationFrame(cardRafId);
+                }
+            };
+
+            resetCardAnimation();
+        });
+
+        card.addEventListener('click', () => {
+            card.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                card.style.transform = 'scale(1)';
+            }, 150);
+        });
+    });
+
+    // Add scroll reveal animation with smooth transitions
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '50px'
+    });
+
+    processCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+        observer.observe(card);
+    });
+
+    // Cleanup function
+    return () => {
+        cancelAnimationFrame(rafId);
+        processCards.forEach(card => {
+            card.removeEventListener('mousemove', () => {});
+            card.removeEventListener('mouseleave', () => {});
+            card.removeEventListener('click', () => {});
+        });
+        observer.disconnect();
+    };
+}
