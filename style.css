@@ -3749,14 +3749,12 @@ html[dir="rtl"] .process-card::after {
     position: relative;
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg,
-            rgba(var(--color-bg-rgb), 0.97) 0%,
-            rgba(var(--color-bg-rgb), 0.92) 100%);
+    justify-content: center;
     overflow: hidden;
-    padding: var(--spacing-xl) 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    perspective: 1000px;
+    transform-style: preserve-3d;
 }
 
 .about-hero::before {
@@ -3766,168 +3764,216 @@ html[dir="rtl"] .process-card::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(var(--color-primary-rgb), 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(var(--color-accent-rgb), 0.1) 0%, transparent 50%);
-    pointer-events: none;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: 1;
+    animation: gradientPulse 8s ease-in-out infinite;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-lg);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xl);
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    transform-style: preserve-3d;
 }
 
 .hero-text {
+    text-align: center;
+    transform: translateZ(50px);
     opacity: 0;
-    transform: translateY(30px);
     animation: fadeInUp 1s ease-out forwards;
 }
 
 .hero-text h1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
     font-weight: 800;
-    margin-bottom: var(--spacing-md);
-    background: linear-gradient(135deg, var(--color-text) 0%, var(--color-muted-text) 100%);
+    margin-bottom: 1.5rem;
+    background: var(--color-text);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    line-height: 1.2;
+    animation: shine 8s linear infinite;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
 }
 
 .hero-text p {
     font-size: 1.5rem;
-    color: var(--color-muted-text);
+    color: var(--color-landing-subtitle);
+    max-width: 600px;
+    margin: 0 auto;
     line-height: 1.6;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.3s forwards;
 }
 
 .hero-visual {
     position: relative;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    height: 400px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .floating-elements {
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
+    transform-style: preserve-3d;
 }
 
 .floating-element {
     position: absolute;
     width: 60px;
     height: 60px;
-    background: rgba(var(--color-surface-rgb), 0.8);
-    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(var(--color-border-rgb), 0.1);
-    animation: float 6s ease-in-out infinite;
+    transform-style: preserve-3d;
     transition: all 0.3s ease;
+    animation: float 6s ease-in-out infinite;
+    cursor: pointer;
 }
 
 .floating-element i {
     font-size: 1.5rem;
-    color: var(--color-primary);
+    color: #fff;
     transition: all 0.3s ease;
+    transform: translateZ(20px);
 }
 
 .floating-element:hover {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 8px 30px rgba(var(--color-primary-rgb), 0.2);
+    transform: scale(1.2) translateZ(30px);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
 .floating-element:hover i {
-    transform: scale(1.2);
-    color: var(--color-accent);
+    transform: translateZ(40px) rotate(360deg);
+    color: var(--accent-color);
 }
 
-.floating-element:nth-child(1) {
-    top: 20%;
-    left: 20%;
-    animation-delay: 0s;
+.hero-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: float 8s ease-in-out infinite;
 }
 
-.floating-element:nth-child(2) {
-    top: 60%;
-    left: 30%;
-    animation-delay: 1s;
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+    transform: translateZ(30px);
+    transition: all 0.5s ease;
 }
 
-.floating-element:nth-child(3) {
-    top: 30%;
-    right: 25%;
-    animation-delay: 2s;
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1s forwards;
 }
 
-.floating-element:nth-child(4) {
-    bottom: 20%;
-    right: 20%;
-    animation-delay: 3s;
+.scroll-indicator span {
+    font-size: 0.9rem;
+    color: #a4aab4;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transform: translateY(0);
+    transition: all 0.3s ease;
 }
 
-.floating-element:nth-child(5) {
-    top: 15%;
-    right: 35%;
-    animation-delay: 1.5s;
+.scroll-arrow {
+    position: relative;
+    width: 30px;
+    height: 50px;
+    border: 2px solid #a4aab4;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
 }
 
-.floating-element:nth-child(6) {
-    bottom: 35%;
-    left: 25%;
-    animation-delay: 2.5s;
+.arrow-line {
+    position: absolute;
+    width: 2px;
+    height: 15px;
+    background: #a4aab4;
+    top: 10px;
+    animation: linePulse 2s ease-in-out infinite;
 }
 
-.floating-element:nth-child(7) {
-    top: 45%;
-    right: 15%;
-    animation-delay: 0.5s;
+.arrow-head {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    transform: rotate(45deg);
+    top: 20px;
+    animation: arrowBounce 2s ease-in-out infinite;
 }
 
-.floating-element:nth-child(8) {
-    bottom: 45%;
-    right: 30%;
-    animation-delay: 3.5s;
+@keyframes gradientPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
 }
 
-.floating-element:nth-child(9) {
-    top: 70%;
-    left: 40%;
-    animation-delay: 2s;
+@keyframes shine {
+    to { background-position: 200% center; }
 }
 
-.floating-element:nth-child(10) {
-    top: 40%;
-    left: 45%;
-    animation-delay: 1s;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes float {
-    0% {
-        transform: translateY(0) rotate(0deg);
-    }
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
 
-    50% {
-        transform: translateY(-15px) rotate(5deg);
-    }
+@keyframes linePulse {
+    0%, 100% { height: 15px; opacity: 0.5; }
+    50% { height: 20px; opacity: 1; }
+}
 
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
+@keyframes arrowBounce {
+    0%, 100% { transform: rotate(45deg) translateY(0); }
+    50% { transform: rotate(45deg) translateY(10px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* Responsive styles for floating elements */
@@ -3973,7 +4019,7 @@ html[dir="rtl"] .process-card::after {
 
 .scroll-indicator {
     position: absolute;
-    bottom: var(--spacing-xl);
+    bottom: 90px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -4013,61 +4059,6 @@ html[dir="rtl"] .process-card::after {
 
 .scroll-arrow:hover {
     transform: translateY(5px);
-}
-
-.arrow-line {
-    width: 2px;
-    height: 40px;
-    background: linear-gradient(to bottom, var(--color-primary), transparent);
-    position: relative;
-    animation: linePulse 2s infinite;
-}
-
-.arrow-line::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 6px;
-    height: 6px;
-    background: var(--color-primary);
-    border-radius: 50%;
-    animation: dotPulse 2s infinite;
-}
-
-.arrow-head {
-    position: absolute;
-    bottom: 0;
-    animation: arrowBounce 2s infinite;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.arrow-head i {
-    font-size: 1.2rem;
-    color: var(--color-primary);
-    animation: arrowGlow 2s infinite;
-}
-
-.arrow-head::before,
-.arrow-head::after {
-    content: '';
-    width: 4px;
-    height: 4px;
-    background: var(--color-primary);
-    border-radius: 50%;
-    opacity: 0.6;
-    animation: dotFade 2s infinite;
-}
-
-.arrow-head::before {
-    animation-delay: 0.3s;
-}
-
-.arrow-head::after {
-    animation-delay: 0.6s;
 }
 
 @keyframes fadeInOut {

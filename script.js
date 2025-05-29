@@ -797,6 +797,11 @@ function initializeCookieBanner() {
 
 // Initialize Particles.js
 function initializeParticles() {
+    if (typeof particlesJS === 'undefined') {
+        console.warn('particlesJS is not loaded. Skipping particles initialization.');
+        return;
+    }
+    
     particlesJS('particles-js', {
         particles: {
             number: {
@@ -1131,22 +1136,13 @@ function initializeAboutHero() {
     const heroSection = document.querySelector('.about-hero');
     if (!heroSection) return;
 
-    // Parallax effect for floating elements
-    const floatingElements = document.querySelectorAll('.floating-element');
+    // Parallax effect for hero image
     const heroImage = document.querySelector('.hero-image img');
 
     function updateParallax() {
         const scrollY = window.scrollY;
         const heroHeight = heroSection.offsetHeight;
         const scrollProgress = Math.min(scrollY / heroHeight, 1);
-
-        // Update floating elements
-        floatingElements.forEach(element => {
-            const speed = element.dataset.speed || 1;
-            const yPos = scrollY * speed * 0.1;
-            const xPos = Math.sin(scrollY * 0.001 * speed) * 20;
-            element.style.transform = `translate(${xPos}px, ${yPos}px)`;
-        });
 
         // Update hero image
         if (heroImage) {
