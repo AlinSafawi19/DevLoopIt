@@ -1248,37 +1248,16 @@ document.querySelectorAll('.landing-buttons .btn').forEach(button => {
 });
 
 function initializeProcessSection() {
-    const processCards = document.querySelectorAll('.process-card');
     const processGrid = document.querySelector('.process-grid');
-    let mouseX = 0;
-    let mouseY = 0;
+    
+    // Return early if process grid is not found
+    if (!processGrid) return;
+
     let targetX = 0;
     let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
     let isAnimating = false;
-    let rafId = null;
-
-    // Smooth animation function
-    function lerp(start, end, factor) {
-        return start + (end - start) * factor;
-    }
-
-    // Smooth mouse movement animation
-    function animateMouseMove() {
-        if (!isAnimating) return;
-
-        // Smooth interpolation for mouse movement
-        mouseX = lerp(mouseX, targetX, 0.1);
-        mouseY = lerp(mouseY, targetY, 0.1);
-
-        // Apply smooth transform to grid
-        processGrid.style.transform = `
-            perspective(1000px)
-            rotateX(${-mouseY}deg)
-            rotateY(${mouseX}deg)
-        `;
-
-        rafId = requestAnimationFrame(animateMouseMove);
-    }
 
     // Add mouse move effect to the grid with smooth interpolation
     processGrid.addEventListener('mousemove', (e) => {
@@ -1292,150 +1271,63 @@ function initializeProcessSection() {
         }
     });
 
-    // Reset grid position smoothly when mouse leaves
+    // Reset position when mouse leaves
     processGrid.addEventListener('mouseleave', () => {
         targetX = 0;
         targetY = 0;
-        
-        const resetAnimation = () => {
-            mouseX = lerp(mouseX, 0, 0.1);
-            mouseY = lerp(mouseY, 0, 0.1);
-
-            processGrid.style.transform = `
-                perspective(1000px)
-                rotateX(${-mouseY}deg)
-                rotateY(${mouseX}deg)
-            `;
-
-            if (Math.abs(mouseX) > 0.01 || Math.abs(mouseY) > 0.01) {
-                rafId = requestAnimationFrame(resetAnimation);
-            } else {
-                isAnimating = false;
-                cancelAnimationFrame(rafId);
-            }
-        };
-
-        resetAnimation();
     });
 
-    // Add hover effect to cards with smooth transitions
+    function lerp(start, end, factor) {
+        return start + (end - start) * factor;
+    }
+
+    function animateMouseMove() {
+        currentX = lerp(currentX, targetX, 0.1);
+        currentY = lerp(currentY, targetY, 0.1);
+
+        processGrid.style.transform = `perspective(1000px) rotateX(${currentY}deg) rotateY(${currentX}deg)`;
+
+        if (Math.abs(currentX - targetX) > 0.01 || Math.abs(currentY - targetY) > 0.01) {
+            requestAnimationFrame(animateMouseMove);
+        } else {
+            isAnimating = false;
+        }
+    }
+
+    // Initialize process cards animation
+    const processCards = processGrid.querySelectorAll('.process-card');
+    
     processCards.forEach((card, index) => {
-        let cardX = 0;
-        let cardY = 0;
-        let targetCardX = 0;
-        let targetCardY = 0;
-        let isCardAnimating = false;
-        let cardRafId = null;
+        card.style.transitionDelay = `${index * 0.1}s`;
+        
+        const resetAnimation = () => {
+            card.style.transform = '';
+            card.style.opacity = '1';
+        };
 
         function animateCard() {
-            if (!isCardAnimating) return;
-
-            cardX = lerp(cardX, targetCardX, 0.1);
-            cardY = lerp(cardY, targetCardY, 0.1);
-
-            const icon = card.querySelector('.process-icon');
+            card.style.transform = 'translateY(20px)';
+            card.style.opacity = '0';
             
-            card.style.transform = `
-                translateY(-10px)
-                rotateX(${-cardY}deg)
-                rotateY(${cardX}deg)
-                scale(1.02)
-            `;
-
-            if (icon) {
-                icon.style.transform = `
-                    translateZ(30px)
-                    rotate(${cardX * 2}deg)
-                    scale(1.1)
-                `;
-            }
-
-            cardRafId = requestAnimationFrame(animateCard);
+            setTimeout(() => {
+                resetCardAnimation();
+            }, 1000);
         }
 
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            targetCardX = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
-            targetCardY = ((e.clientY - rect.top) / rect.height - 0.5) * 8;
+        const resetCardAnimation = () => {
+            card.style.transform = '';
+            card.style.opacity = '1';
+        };
 
-            if (!isCardAnimating) {
-                isCardAnimating = true;
-                animateCard();
-            }
+        // Add hover effect
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-10px)';
+            card.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.1)';
         });
 
         card.addEventListener('mouseleave', () => {
-            targetCardX = 0;
-            targetCardY = 0;
-
-            const resetCardAnimation = () => {
-                cardX = lerp(cardX, 0, 0.1);
-                cardY = lerp(cardY, 0, 0.1);
-
-                const icon = card.querySelector('.process-icon');
-
-                card.style.transform = `
-                    translateY(0)
-                    rotateX(0)
-                    rotateY(0)
-                    scale(1)
-                `;
-
-                if (icon) {
-                    icon.style.transform = `
-                        translateZ(0)
-                        rotate(0)
-                        scale(1)
-                    `;
-                }
-
-                if (Math.abs(cardX) > 0.01 || Math.abs(cardY) > 0.01) {
-                    cardRafId = requestAnimationFrame(resetCardAnimation);
-                } else {
-                    isCardAnimating = false;
-                    cancelAnimationFrame(cardRafId);
-                }
-            };
-
-            resetCardAnimation();
-        });
-
-        card.addEventListener('click', () => {
-            card.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                card.style.transform = 'scale(1)';
-            }, 150);
+            card.style.transform = '';
+            card.style.boxShadow = '';
         });
     });
-
-    // Add scroll reveal animation with smooth transitions
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '50px'
-    });
-
-    processCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-        observer.observe(card);
-    });
-
-    // Cleanup function
-    return () => {
-        cancelAnimationFrame(rafId);
-        processCards.forEach(card => {
-            card.removeEventListener('mousemove', () => {});
-            card.removeEventListener('mouseleave', () => {});
-            card.removeEventListener('click', () => {});
-        });
-        observer.disconnect();
-    };
 }
