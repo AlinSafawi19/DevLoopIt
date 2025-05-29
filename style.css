@@ -3009,6 +3009,7 @@ html[dir="rtl"] .process-card::after {
             rgba(var(--color-bg-rgb), 0.97) 0%,
             rgba(var(--color-bg-rgb), 0.92) 100%);
     overflow: hidden;
+    perspective: 2000px;
 }
 
 .mission-vision-section::before {
@@ -3019,18 +3020,19 @@ html[dir="rtl"] .process-card::after {
     right: 0;
     bottom: 0;
     background:
-        radial-gradient(circle at 20% 20%, rgba(var(--color-primary-rgb), 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(var(--color-accent-rgb), 0.1) 0%, transparent 50%);
+        radial-gradient(circle at 20% 20%, rgba(var(--color-primary-rgb), 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(var(--color-accent-rgb), 0.15) 0%, transparent 50%);
     pointer-events: none;
+    animation: gradientShift 15s ease-in-out infinite alternate;
 }
 
 .mission-vision-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-xl);
     position: relative;
     z-index: 2;
     perspective: 1000px;
+    transform-style: preserve-3d;
 }
 
 .mission-card,
@@ -3038,23 +3040,13 @@ html[dir="rtl"] .process-card::after {
     background: rgba(var(--color-surface-rgb), 0.5);
     border-radius: var(--radius-lg);
     padding: var(--spacing-xl);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(var(--color-border-rgb), 0.1);
     transform-style: preserve-3d;
-    animation: fadeInUp 0.6s ease-out backwards;
-    will-change: transform;
-}
-
-.mission-card {
-    animation-delay: 0.1s;
-}
-
-.vision-card {
-    animation-delay: 0.2s;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
 }
 
 .mission-card::before,
@@ -3069,15 +3061,36 @@ html[dir="rtl"] .process-card::after {
             rgba(var(--color-primary-rgb), 0.1) 0%,
             rgba(var(--color-accent-rgb), 0.1) 100%);
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.6s ease;
+    z-index: -1;
 }
 
-.mission-card:hover,
+.mission-card:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 0 20px rgba(var(--color-primary-rgb), 0.1);
+}
+
+html[dir="rtl"] .mission-card:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 0 20px rgba(var(--color-primary-rgb), 0.1);
+}
+
 .vision-card:hover {
-    transform: translateY(-5px) rotateX(5deg) scale(1.02);
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.1),
-        0 0 0 1px rgba(var(--color-border-rgb), 0.1);
+    transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 0 20px rgba(var(--color-primary-rgb), 0.1);
+}
+
+html[dir="rtl"] .vision-card:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 0 20px rgba(var(--color-primary-rgb), 0.1);
 }
 
 .mission-card:hover::before,
@@ -3086,41 +3099,40 @@ html[dir="rtl"] .process-card::after {
 }
 
 .card-icon {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: var(--spacing-md);
+    width: 80px;
+    height: 80px;
+    margin-bottom: var(--spacing-lg);
     position: relative;
-    transition: transform 0.4s ease;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-icon i {
-    font-size: 2rem;
-    color: white;
-    transition: transform 0.4s ease;
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    transition: all 0.6s ease;
+    transform: translateZ(20px);
 }
 
 .mission-card:hover .card-icon,
 .vision-card:hover .card-icon {
-    transform: scale(1.1) rotate(5deg);
+    transform: rotateY(180deg) scale(1.1);
 }
 
 .mission-card:hover .card-icon i,
 .vision-card:hover .card-icon i {
-    transform: scale(1.1);
+    color: var(--color-accent);
+    animation: iconPulse 2s infinite;
 }
 
 .mission-card h3,
 .vision-card h3 {
-    font-size: 1.5rem;
-    color: var(--color-text);
+    font-size: 1.8rem;
     margin-bottom: var(--spacing-md);
+    color: var(--color-text);
     position: relative;
-    display: inline-block;
+    transform: translateZ(30px);
+    transition: all 0.6s ease;
 }
 
 .mission-card h3::after,
@@ -3129,11 +3141,10 @@ html[dir="rtl"] .process-card::after {
     position: absolute;
     bottom: -8px;
     left: 0;
-    width: 40px;
-    height: 3px;
-    background: linear-gradient(to right, var(--color-primary), var(--color-accent));
-    border-radius: var(--radius-sm);
-    transition: width 0.4s ease;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    transition: width 0.6s ease;
 }
 
 .mission-card:hover h3::after,
@@ -3143,9 +3154,155 @@ html[dir="rtl"] .process-card::after {
 
 .mission-card p,
 .vision-card p {
-    color: var(--color-muted-text);
-    line-height: 1.6;
-    font-size: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    transform: translateZ(20px);
+    transition: all 0.6s ease;
+}
+
+@keyframes iconPulse {
+    0% {
+        transform: translateZ(20px) scale(1);
+    }
+    50% {
+        transform: translateZ(20px) scale(1.1);
+    }
+    100% {
+        transform: translateZ(20px) scale(1);
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+/* Add floating particles */
+.mission-vision-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(var(--color-primary-rgb), 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 80% 70%, rgba(var(--color-accent-rgb), 0.1) 0%, transparent 20%);
+    animation: particleFloat 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+    100% {
+        transform: translateY(0) rotate(360deg);
+    }
+}
+
+/* Add 3D tilt effect */
+.mission-card,
+.vision-card {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vision-card:hover {
+    transform: 
+        perspective(1000px)
+        rotateX(5deg)
+        rotateY(5deg)
+        translateZ(20px);
+}
+
+html[dir="rtl"] .vision-card:hover {
+    transform: 
+    perspective(1000px)
+    rotateX(5deg)
+    rotateY(-5deg)
+    translateZ(20px);
+}
+
+.mission-card:hover {
+    transform: 
+        perspective(1000px)
+        rotateX(5deg)
+        rotateY(-5deg)
+        translateZ(20px);
+}
+
+html[dir="rtl"] .vision-card:hover {
+    transform: 
+    perspective(1000px)
+    rotateX(5deg)
+    rotateY(5deg)
+    translateZ(20px);
+}
+
+
+/* Add shine effect */
+.mission-card::after,
+.vision-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 100%
+    );
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.mission-card:hover::after,
+.vision-card:hover::after {
+    animation: shine 1.5s ease-in-out;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* Add responsive styles */
+@media (max-width: 768px) {
+    .mission-vision-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .mission-card,
+    .vision-card {
+        transform: none !important;
+    }
+
+    .mission-card:hover,
+    .vision-card:hover {
+        transform: translateY(-5px) !important;
+    }
 }
 
 /* Our Story Section */
