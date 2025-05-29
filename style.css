@@ -4566,3 +4566,48 @@ html[dir="rtl"] .vision-card:hover {
         font-size: 0.95rem;
     }
 }
+
+/* Services CTA Section */
+.services-cta {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid rgba(255, 255, 255, 0.1);
+    background-image: url('../images/cta-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+}
+
+.cta-content {
+    text-align: center;
+    color: var(--text-light);
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 3rem;
+    border-radius: 1rem;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+}
